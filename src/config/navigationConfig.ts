@@ -15,6 +15,7 @@ export interface AnnouncementMessage {
   text: string;
   linkLabel?: string;
   href?: string;
+  link?: string;
   active: boolean;
 }
 

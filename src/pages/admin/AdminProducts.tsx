@@ -14,6 +14,7 @@ import {
   Upload,
   X,
   Sparkles,
+  Package,
 } from 'lucide-react';
 import { adminStore } from '../../services/adminStore';
 import type { Product, ProductVariant } from '../../types/catalog';
@@ -935,3 +936,4 @@ export function AdminProducts() {
     </div>
   );
 }
+

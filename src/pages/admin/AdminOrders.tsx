@@ -51,7 +51,7 @@ export function AdminOrders() {
         o.contact.firstName.toLowerCase().includes(search.toLowerCase()) ||
         o.contact.lastName.toLowerCase().includes(search.toLowerCase()) ||
         o.contact.phone.includes(search) ||
-        o.shippingAddress.city.toLowerCase().includes(search.toLowerCase());
+        (o.shippingAddress?.city || o.address?.city || '').toLowerCase().includes(search.toLowerCase());
 
       const matchesStatus = statusFilter === 'all' || o.status === statusFilter;
       const matchesPayment = paymentFilter === 'all' || o.paymentStatus === paymentFilter;
@@ -178,7 +178,7 @@ export function AdminOrders() {
                     <p className="text-[11px] text-neutral-400">{order.contact.phone}</p>
                   </td>
                   <td className="py-3 px-3 text-neutral-600">
-                    {order.shippingAddress.city}, {order.shippingAddress.district}
+                    {order.shippingAddress?.city || order.address?.city || ''}, {order.shippingAddress?.district || order.address?.district || ''}
                   </td>
                   <td className="py-3 px-3 font-bold font-serif text-neutral-900">
                     {formatLKR(order.total)}
@@ -191,7 +191,7 @@ export function AdminOrders() {
                           : 'bg-amber-100 text-amber-800'
                       }`}
                     >
-                      {order.paymentMethodId.toUpperCase()} • {order.paymentStatus}
+                      {(order.paymentMethodId || order.paymentMethod?.id || 'COD').toUpperCase()} • {order.paymentStatus}
                     </span>
                   </td>
                   <td className="py-3 px-3">
@@ -332,9 +332,9 @@ export function AdminOrders() {
                     <MapPin className="h-3.5 w-3.5 text-neutral-400" />
                     Delivery Address
                   </p>
-                  <p>{selectedOrder.shippingAddress.line1}</p>
+                  <p>{selectedOrder.shippingAddress?.line1 || selectedOrder.address?.line1 || ''}</p>
                   <p>
-                    {selectedOrder.shippingAddress.city}, {selectedOrder.shippingAddress.district}
+                    {selectedOrder.shippingAddress?.city || selectedOrder.address?.city || ''}, {selectedOrder.shippingAddress?.district || selectedOrder.address?.district || ''}
                   </p>
                   <p className="text-neutral-400">{selectedOrder.deliveryMethod.name}</p>
                 </div>
@@ -355,7 +355,7 @@ export function AdminOrders() {
                         </p>
                       </div>
                       <p className="font-bold font-serif text-neutral-900">
-                        {formatLKR(item.lineTotal)}
+                        {formatLKR(item.lineTotal ?? (item.unitPrice * item.quantity))}
                       </p>
                     </div>
                   ))}
@@ -451,11 +451,11 @@ export function AdminOrders() {
               </div>
               <div>
                 <p className="font-bold text-neutral-400 uppercase tracking-wider mb-1">Shipped To:</p>
-                <p className="text-neutral-900">{invoiceOrder.shippingAddress.line1}</p>
+                <p className="text-neutral-900">{invoiceOrder.shippingAddress?.line1 || invoiceOrder.address?.line1 || ''}</p>
                 <p className="text-neutral-900">
-                  {invoiceOrder.shippingAddress.city}, {invoiceOrder.shippingAddress.district}
+                  {invoiceOrder.shippingAddress?.city || invoiceOrder.address?.city || ''}, {invoiceOrder.shippingAddress?.district || invoiceOrder.address?.district || ''}
                 </p>
-                <p className="text-neutral-600">Payment: {invoiceOrder.paymentMethodId.toUpperCase()}</p>
+                <p className="text-neutral-600">Payment: {(invoiceOrder.paymentMethodId || invoiceOrder.paymentMethod?.id || 'COD').toUpperCase()}</p>
               </div>
             </div>
 
@@ -478,7 +478,7 @@ export function AdminOrders() {
                       </td>
                       <td className="py-2.5 text-center font-mono">{it.quantity}</td>
                       <td className="py-2.5 text-right font-serif">{formatLKR(it.unitPrice)}</td>
-                      <td className="py-2.5 text-right font-serif font-semibold">{formatLKR(it.lineTotal)}</td>
+                      <td className="py-2.5 text-right font-serif font-semibold">{formatLKR(it.lineTotal ?? (it.unitPrice * it.quantity))}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -538,3 +538,4 @@ export function AdminOrders() {
     </div>
   );
 }
+

@@ -66,6 +66,7 @@ export type OrderItem = {
   image: string;
   unitPrice: number;
   quantity: number;
+  lineTotal?: number;
 };
 
 export type Order = {
@@ -74,9 +75,11 @@ export type Order = {
   createdAt: string;
   contact: ContactDetails;
   address: Omit<Address, 'id' | 'label' | 'isDefault'>;
+  shippingAddress?: Address | Omit<Address, 'id' | 'label' | 'isDefault'>;
   items: OrderItem[];
   deliveryMethod: {id: string;name: string;description: string;};
   paymentMethod: {id: PaymentMethod['id'];name: string;};
+  paymentMethodId?: string;
   paymentStatus: PaymentStatus;
   status: OrderStatus;
   statusHistory: {status: OrderStatus;at: string;}[];
@@ -86,6 +89,7 @@ export type Order = {
   deliveryFee: number;
   total: number;
   tracking?: {courier: string;number: string;};
+  notes?: string;
 };
 
 export type Customer = {
@@ -94,7 +98,7 @@ export type Customer = {
   lastName: string;
   email: string;
   phone: string;
-  passwordHash: string;
+  passwordHash?: string;
   marketingOptIn: boolean;
   addresses: Address[];
   createdAt: string;
@@ -108,8 +112,8 @@ export type SubmittedReview = {
   rating: number;
   title?: string;
   body: string;
-  photos: string[];
+  photos?: string[];
   createdAt: string;
-  status: 'pending' | 'published' | 'rejected';
+  status: 'pending' | 'published' | 'approved' | 'rejected';
   verified: boolean;
 };

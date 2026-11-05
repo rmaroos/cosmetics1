@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Plus, Edit, Trash2, BookOpen, Calendar, Eye, CheckCircle, XCircle, X } from 'lucide-react';
 import { adminStore } from '../../services/adminStore';
-import type { Article } from '../../types/content';
+import type { Article, ArticleKind } from '../../types/content';
 import { useAdminAuth } from '../../contexts/AdminAuthContext';
 import { img } from '../../data/images';
 
@@ -16,7 +16,7 @@ export function AdminJournal() {
   // Form State
   const [title, setTitle] = useState('');
   const [slug, setSlug] = useState('');
-  const [kind, setKind] = useState<'journal' | 'routine'>('journal');
+  const [kind, setKind] = useState<ArticleKind>('journal');
   const [topic, setTopic] = useState('Sun care');
   const [excerpt, setExcerpt] = useState('');
   const [author, setAuthor] = useState('Nelum Beauty Team');
@@ -321,3 +321,4 @@ export function AdminJournal() {
     </div>
   );
 }
+

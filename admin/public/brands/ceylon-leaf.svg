@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" fill="none" role="img" aria-label="Ceylon Leaf">
+  <g transform="translate(18, 12)">
+    <path d="M4 25 C7 14, 19 7, 29 5 C26 16, 15 26, 4 25 Z" fill="#879486" opacity="0.9" />
+    <path d="M4 25 C12 18, 20 12, 29 5" stroke="#FAF9F8" stroke-width="1.1" stroke-linecap="round" />
+  </g>
+  <text x="60" y="29" font-family="'Cormorant Garamond', Georgia, serif" font-size="20" font-weight="600" letter-spacing="2" fill="#242326">CEYLON LEAF</text>
+  <text x="61" y="43" font-family="'Inter', sans-serif" font-size="7.5" font-weight="600" letter-spacing="3" fill="#77747A">ISLAND BOTANICALS &amp; TEAS</text>
+</svg>

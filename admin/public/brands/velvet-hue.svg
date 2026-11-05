@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" fill="none" role="img" aria-label="Velvet Hue">
+  <g transform="translate(18, 12)">
+    <rect x="2" y="2" width="31" height="31" rx="5" stroke="#242326" stroke-width="1.8" fill="none" />
+    <path d="M10 10 L17.5 24 L25 10" stroke="#242326" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  </g>
+  <text x="62" y="30" font-family="'Inter', system-ui, sans-serif" font-size="19" font-weight="700" letter-spacing="2" fill="#242326">VELVET HUE</text>
+  <text x="63" y="44" font-family="'Inter', system-ui, sans-serif" font-size="7.5" font-weight="600" letter-spacing="3" fill="#77747A">NEW YORK · COLOR STUDIO</text>
+</svg>

@@ -403,7 +403,7 @@ export function AdminDashboard() {
                       <p className="font-medium text-neutral-900">
                         {order.contact.firstName} {order.contact.lastName}
                       </p>
-                      <p className="text-[11px] text-neutral-400">{order.shippingAddress.city}</p>
+                      <p className="text-[11px] text-neutral-400">{order.shippingAddress?.city || order.address?.city || ''}</p>
                     </td>
                     <td className="py-3 font-semibold text-neutral-900 font-serif">
                       {formatLKR(order.total)}
@@ -489,3 +489,4 @@ export function AdminDashboard() {
     </div>
   );
 }
+

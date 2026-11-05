@@ -40,7 +40,7 @@ export function AdminReports() {
       o.reference,
       new Date(o.createdAt).toLocaleDateString(),
       `${o.contact.firstName} ${o.contact.lastName}`,
-      o.paymentMethodId.toUpperCase(),
+      (o.paymentMethodId || o.paymentMethod?.id || 'COD').toUpperCase(),
       o.status,
       o.total,
     ]);
@@ -220,7 +220,7 @@ export function AdminReports() {
                     <td className="py-3 font-medium text-neutral-900">
                       {o.contact.firstName} {o.contact.lastName}
                     </td>
-                    <td className="py-3 text-neutral-600">{o.paymentMethodId.toUpperCase()}</td>
+                    <td className="py-3 text-neutral-600">{(o.paymentMethodId || o.paymentMethod?.id || 'COD').toUpperCase()}</td>
                     <td className="py-3">
                       <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-neutral-100 text-neutral-700">
                         {o.status}
@@ -307,3 +307,4 @@ export function AdminReports() {
     </div>
   );
 }
+

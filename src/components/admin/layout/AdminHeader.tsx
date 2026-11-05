@@ -234,3 +234,4 @@ export function AdminHeader({ onOpenMobile }: AdminHeaderProps) {
     </header>
   );
 }
+

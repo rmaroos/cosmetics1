@@ -127,3 +127,4 @@ export interface AuditLogEntry {
   userEmail: string;
   timestamp: string;
 }
+
