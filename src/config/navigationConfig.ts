@@ -294,7 +294,6 @@ export function resolveMegaMenu(type: MegaMenuType, customPromo?: PromoCardConfi
             links: publishedBrands.slice(0, 4).map((b) => ({
               label: b.name,
               href: `/brand/${b.slug}`,
-              badge: b.origin,
             })),
           },
           {
@@ -303,7 +302,6 @@ export function resolveMegaMenu(type: MegaMenuType, customPromo?: PromoCardConfi
             links: publishedBrands.slice(4, 8).map((b) => ({
               label: b.name,
               href: `/brand/${b.slug}`,
-              badge: b.origin,
             })),
           },
           {
