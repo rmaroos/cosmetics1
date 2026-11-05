@@ -106,6 +106,13 @@ export function Footer() {
           <p>© {new Date().getFullYear()} {siteConfig.name}. {siteConfig.address}</p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <span>We accept: Cash on delivery · Bank transfer</span>
+            <Link
+              to="/admin"
+              className="inline-flex items-center gap-1 font-semibold text-[#9F2438] hover:underline"
+            >
+              <span>Admin Portal</span>
+              <span aria-hidden="true">↗</span>
+            </Link>
             <ul className="flex gap-4">
               {siteConfig.social.map((s) =>
               <li key={s.label}>

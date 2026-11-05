@@ -1,28 +1,47 @@
 import type { Brand, Category, Collection, Product, ProductVariant } from '../types/catalog';
-import { products } from '../data/products';
-import { brands } from '../data/brands';
-import { categories } from '../data/categories';
 import { collections } from '../data/collections';
 import { reviews } from '../data/reviews';
 import { skinConcerns, skinTypes } from '../data/skinTaxonomy';
+import { adminStore } from '../services/adminStore';
 
-/* ---------- Visibility (only published, with published brand) ---------- */
-const publishedBrandIds = new Set(brands.filter((b) => b.published).map((b) => b.id));
+/* ---------- Live Dynamic Catalogs connected to Admin Store ---------- */
+export const catalogProducts: Product[] = new Proxy([] as Product[], {
+  get(target, prop, receiver) {
+    const publishedBrandIds = new Set(adminStore.getBrands().filter((b) => b.published).map((b) => b.id));
+    const list = adminStore.getProducts().filter((p) => p.published && publishedBrandIds.has(p.brandId));
+    return Reflect.get(list, prop, receiver);
+  },
+});
 
-export const catalogProducts: Product[] = products.filter((p) => p.published && publishedBrandIds.has(p.brandId));
-export const catalogBrands: Brand[] = brands.filter((b) => b.published).sort((a, b) => a.name.localeCompare(b.name));
-export const catalogCategories: Category[] = categories.filter((c) => c.published).sort((a, b) => a.order - b.order);
+export const catalogBrands: Brand[] = new Proxy([] as Brand[], {
+  get(target, prop, receiver) {
+    const list = adminStore.getBrands().filter((b) => b.published).sort((a, b) => a.name.localeCompare(b.name));
+    return Reflect.get(list, prop, receiver);
+  },
+});
+
+export const catalogCategories: Category[] = new Proxy([] as Category[], {
+  get(target, prop, receiver) {
+    const list = adminStore.getCategories().filter((c) => c.published).sort((a, b) => a.order - b.order);
+    return Reflect.get(list, prop, receiver);
+  },
+});
+
 export const catalogCollections: Collection[] = collections.filter((c) => c.published);
 export const catalogSkinTypes = skinTypes.filter((s) => s.published);
 export const catalogConcerns = skinConcerns.filter((s) => s.published);
 
 /* ---------- Lookups ---------- */
-export const getProductBySlug = (slug: string) => catalogProducts.find((p) => p.slug === slug);
-export const getProductById = (id: string) => catalogProducts.find((p) => p.id === id);
-export const getBrandById = (id: string) => catalogBrands.find((b) => b.id === id);
-export const getBrandBySlug = (slug: string) => catalogBrands.find((b) => b.slug === slug);
-export const getCategoryBySlug = (slug: string) => catalogCategories.find((c) => c.slug === slug);
-export const getCategoryById = (id: string) => catalogCategories.find((c) => c.id === id);
+export const getProductBySlug = (slug: string) => {
+  const publishedBrandIds = new Set(adminStore.getBrands().filter((b) => b.published).map((b) => b.id));
+  return adminStore.getProducts().find((p) => p.slug === slug && p.published && publishedBrandIds.has(p.brandId));
+};
+
+export const getProductById = (id: string) => adminStore.getProductById(id);
+export const getBrandById = (id: string) => adminStore.getBrands().find((b) => b.id === id);
+export const getBrandBySlug = (slug: string) => adminStore.getBrands().find((b) => b.slug === slug);
+export const getCategoryBySlug = (slug: string) => adminStore.getCategories().find((c) => c.slug === slug);
+export const getCategoryById = (id: string) => adminStore.getCategories().find((c) => c.id === id);
 export const getCollectionBySlug = (slug: string) => catalogCollections.find((c) => c.slug === slug);
 const CONCERN_SYNONYMS: Record<string, string[]> = {
   acne: ['acne', 'acne-blemishes'],

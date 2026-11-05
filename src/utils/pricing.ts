@@ -2,6 +2,8 @@ import type { DeliveryMethod, PromoCode } from '../types/commerce';
 import { deliveryMethods, promoCodes } from '../data/site';
 import { formatPrice } from './format';
 
+export const formatLKR = formatPrice;
+
 export type PromoResult = {ok: true;promo: PromoCode;discount: number;} | {ok: false;reason: string;};
 
 export function validatePromo(rawCode: string, subtotal: number, now = new Date()): PromoResult {
