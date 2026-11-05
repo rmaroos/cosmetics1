@@ -1,71 +1,143 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowDown } from 'lucide-react';
+import { img } from '../../data/images';
 import {
-  type HeroBannerSlide,
   type MarqueeMessage,
-  defaultBannerSlides,
   defaultMarqueeMessages,
   getActiveMarqueeMessages,
-  getActiveScheduledBanners,
-  getStoredSliderSettings,
 } from '../../config/bannerConfig';
 
+interface EditorialSlide {
+  id: string;
+  headlineLine1: string;
+  headlineLine2Lead: string;
+  headlineLine2Overlap: string;
+  description: string;
+  ctaPrimaryText: string;
+  ctaPrimaryUrl: string;
+  ctaSecondaryText: string;
+  ctaSecondaryUrl: string;
+  image: string;
+  imageAlt: string;
+  tagline: string;
+  sinceYear: string;
+}
+
+const editorialSlides: EditorialSlide[] = [
+  {
+    id: 'glow',
+    headlineLine1: 'Discover Your',
+    headlineLine2Lead: 'Natural ',
+    headlineLine2Overlap: 'Glow',
+    description:
+      'Discover beauty essentials curated to enhance your natural glow. Explore premium skincare, makeup and beauty products.',
+    ctaPrimaryText: 'Shop Collection',
+    ctaPrimaryUrl: '/collection/best-sellers',
+    ctaSecondaryText: 'Explore Beauty',
+    ctaSecondaryUrl: '/category/skincare',
+    image: img.hero,
+    imageAlt: 'Radiant model with glowing, luminous skin in warm natural light',
+    tagline: 'Beauty product company',
+    sinceYear: 'since 2021',
+  },
+  {
+    id: 'botanicals',
+    headlineLine1: 'Pure Botanical',
+    headlineLine2Lead: 'Daily ',
+    headlineLine2Overlap: 'Radiance',
+    description:
+      'Dermatologist-tested skincare and pure active botanicals crafted for tropical humidity and everyday radiance.',
+    ctaPrimaryText: 'Shop Skincare',
+    ctaPrimaryUrl: '/category/skincare',
+    ctaSecondaryText: 'Find Your Routine',
+    ctaSecondaryUrl: '/discover',
+    image: img.campaignSkincare,
+    imageAlt: 'Curated skincare bottles and restorative facial cream jars',
+    tagline: 'Botanical science',
+    sinceYear: 'since 2021',
+  },
+  {
+    id: 'complexion',
+    headlineLine1: 'Luminous Velvet',
+    headlineLine2Lead: 'Complexion ',
+    headlineLine2Overlap: 'Finish',
+    description:
+      'Flawless, breathable serum foundations and velvety textures tailored for South Asian undertones.',
+    ctaPrimaryText: 'Discover Makeup',
+    ctaPrimaryUrl: '/category/makeup',
+    ctaSecondaryText: 'View Lip Shades',
+    ctaSecondaryUrl: '/category/makeup/lips',
+    image: img.campaignMakeup,
+    imageAlt: 'High-fashion model featuring luminous radiant makeup and satin lip colour',
+    tagline: 'Breathable beauty rituals',
+    sinceYear: 'since 2021',
+  },
+];
+
+const heroProductPreviews = [
+  {
+    id: 'p01',
+    name: 'Gotu Kola Gentle Gel Cleanser',
+    category: 'Cleanser',
+    slug: 'gotu-kola-gentle-gel-cleanser',
+    image: img.cleanser,
+  },
+  {
+    id: 'p11',
+    name: 'Vitamin C 15% Brightening Serum',
+    category: 'Serum',
+    slug: 'vitamin-c-15-brightening-serum',
+    image: img.serum,
+  },
+  {
+    id: 'p05',
+    name: 'Ceramide Barrier Moisturiser',
+    category: 'Moisturiser',
+    slug: 'ceramide-barrier-moisturiser',
+    image: img.creamJar,
+  },
+];
+
 export function HeroCampaign() {
-  const [slides, setSlides] = useState<HeroBannerSlide[]>(getActiveScheduledBanners);
-  const [marqueeItems, setMarqueeItems] = useState<MarqueeMessage[]>(getActiveMarqueeMessages);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [direction, setDirection] = useState<1 | -1>(1);
+  const [marqueeItems, setMarqueeItems] = useState<MarqueeMessage[]>(getActiveMarqueeMessages);
+  const sliderRef = useRef<HTMLElement>(null);
 
   // Touch tracking for mobile swipe gestures
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
-  const sliderRef = useRef<HTMLElement>(null);
 
-  // Settings from storage - defaults to 3-second transitions
-  const settings = getStoredSliderSettings();
-  const autoplay = settings.autoplay !== false;
-  const slideDuration = settings.slideDuration || 3000;
+  const totalSlides = editorialSlides.length;
+  const currentSlide = editorialSlides[currentIndex % totalSlides];
 
-  // Listen for admin changes
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+  }, [totalSlides]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+  }, [totalSlides]);
+
+  // Autoplay timer every 6 seconds (pauses on hover)
+  useEffect(() => {
+    if (isHovered || totalSlides <= 1) return;
+    const timer = window.setInterval(nextSlide, 6000);
+    return () => window.clearInterval(timer);
+  }, [isHovered, totalSlides, nextSlide]);
+
+  // Listen for admin changes to marquee
   useEffect(() => {
     const handleStorageChange = () => {
-      setSlides(getActiveScheduledBanners());
       setMarqueeItems(getActiveMarqueeMessages());
     };
     window.addEventListener('storage', handleStorageChange);
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
-  const totalSlides = slides.length || defaultBannerSlides.length;
-  const currentSlide = slides[currentIndex % totalSlides] || slides[0] || defaultBannerSlides[0];
-
-  const goToSlide = useCallback((newIndex: number, newDirection: 1 | -1 = 1) => {
-    setDirection(newDirection);
-    setCurrentIndex(newIndex);
-  }, []);
-
-  const nextSlide = useCallback(() => {
-    if (totalSlides <= 1) return;
-    setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
-  }, [totalSlides]);
-
-  const prevSlide = useCallback(() => {
-    if (totalSlides <= 1) return;
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-  }, [totalSlides]);
-
-  // Autoplay timer every 3 seconds (pauses on hover)
-  useEffect(() => {
-    if (!autoplay || isHovered || totalSlides <= 1) return;
-    const timer = window.setInterval(nextSlide, slideDuration);
-    return () => window.clearInterval(timer);
-  }, [autoplay, isHovered, totalSlides, slideDuration, nextSlide]);
-
-  // Touch gesture handlers for mobile swipe
+  // Touch gesture handlers
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
     touchEndX.current = null;
@@ -78,11 +150,9 @@ export function HeroCampaign() {
   const handleTouchEnd = () => {
     if (touchStartX.current === null || touchEndX.current === null) return;
     const distance = touchStartX.current - touchEndX.current;
-    const minSwipeDistance = 40; // px
-
-    if (distance > minSwipeDistance) {
+    if (distance > 40) {
       nextSlide();
-    } else if (distance < -minSwipeDistance) {
+    } else if (distance < -40) {
       prevSlide();
     }
     touchStartX.current = null;
@@ -100,180 +170,242 @@ export function HeroCampaign() {
     }
   };
 
-  // Tone background colors
-  const toneBgMap: Record<HeroBannerSlide['tone'], string> = {
-    blush: 'bg-[#FAF3F2]',
-    sage: 'bg-[#F4F7F3]',
-    rose: 'bg-[#FAF2F4]',
-    sand: 'bg-[#FAF7F1]',
-    ivory: 'bg-[#FBF9F7]',
+  // Smooth scroll down to next section
+  const scrollToNext = () => {
+    const nextSection =
+      document.getElementById('trust-strip') ||
+      document.getElementById('best-sellers') ||
+      document.querySelector('main > section:nth-of-type(2)');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollBy({ top: 650, behavior: 'smooth' });
+    }
   };
-
-  const currentBg = currentSlide ? toneBgMap[currentSlide.tone] || 'bg-[#FAF8F5]' : 'bg-[#FAF8F5]';
-
-  // Animation variants (smooth horizontal slide with soft fade)
-  const slideVariants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? '100%' : '-100%',
-      opacity: 0.3,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (dir: number) => ({
-      x: dir > 0 ? '-100%' : '100%',
-      opacity: 0.3,
-    }),
-  };
-
-  if (!currentSlide) return null;
 
   const validMarquee = marqueeItems.length > 0 ? marqueeItems : defaultMarqueeMessages;
 
   return (
     <div className="w-full overflow-hidden">
-      {/* ─── 1. FULL-WIDTH EDGE-TO-EDGE HERO BANNER (100% Viewport Width) ──── */}
+      {/* ─── 1. FULL-WIDTH EDITORIAL HERO SECTION ───────────────────────── */}
       <section
         ref={sliderRef}
         tabIndex={0}
         role="region"
-        aria-roledescription="carousel"
-        aria-label="Promotional campaign banners"
+        aria-label="Editorial beauty campaign hero"
         onKeyDown={handleKeyDown}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        className={`relative w-full overflow-hidden ${currentBg} transition-colors duration-700 focus:outline-none`}
+        className="relative w-full bg-[#E5E7EB] text-neutral-900 overflow-hidden focus:outline-none"
       >
-        <div className="relative w-full min-h-[480px] sm:min-h-[500px] md:min-h-[520px] lg:min-h-[560px] xl:min-h-[600px]">
-          <AnimatePresence initial={false} custom={direction} mode="popLayout">
-            <motion.div
-              key={currentSlide.id}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                x: { type: 'spring', stiffness: 240, damping: 28 },
-                opacity: { duration: 0.3 },
-              }}
-              className="w-full h-full"
+        {/* Right Architectural Tinted Column (Subtle architectural panel) */}
+        <div
+          className="hidden lg:block absolute right-0 top-0 bottom-0 w-[38%] xl:w-[35%] bg-[#DCDFE3] border-l border-neutral-300/40 pointer-events-none"
+          aria-hidden="true"
+        />
+
+        {/* Hero Section Container */}
+        <div className="relative mx-auto w-full max-w-[1720px] px-6 sm:px-10 lg:px-16 pt-6 sm:pt-8 pb-14 sm:pb-16 lg:pb-20">
+          
+          {/* ─── Top Editorial Micro-Navigation Bar ────────────────────────── */}
+          <div className="relative z-30 flex items-center justify-between pb-6 sm:pb-8 lg:pb-10 border-b border-neutral-300/40 lg:border-none">
+            {/* Minimal Brand Monogram */}
+            <div className="flex items-center gap-8">
+              <Link
+                to="/"
+                className="font-sans text-2xl sm:text-3xl font-black tracking-tighter text-neutral-950 hover:opacity-80 transition-opacity"
+                aria-label="Nelum Home"
+              >
+                И.
+              </Link>
+            </div>
+
+            {/* Clean Navigation Links */}
+            <nav
+              aria-label="Hero navigation"
+              className="hidden md:flex items-center gap-8 lg:gap-12 text-[13px] font-medium tracking-wide text-neutral-700"
             >
-              {/* Edge-to-edge grid with NO max-width constraint */}
-              <div className="grid w-full min-h-[480px] sm:min-h-[500px] md:min-h-[520px] lg:min-h-[560px] xl:min-h-[600px] lg:grid-cols-12 lg:items-stretch">
-                
-                {/* ─── Left Editorial Column (Full Height) ────────────────── */}
-                <div className="z-10 flex flex-col justify-center px-6 py-10 sm:px-12 md:px-16 lg:col-span-6 lg:py-14 lg:pl-12 lg:pr-8 xl:col-span-6 xl:pl-20 xl:pr-12">
-                  {/* Eyebrow */}
-                  {currentSlide.eyebrow && (
-                    <motion.p
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.08, duration: 0.3 }}
-                      className="text-xs font-semibold uppercase tracking-[0.2em] text-brand"
-                    >
-                      {currentSlide.eyebrow}
-                    </motion.p>
-                  )}
+              <Link to="/about" className="hover:text-neutral-950 transition-colors">
+                About
+              </Link>
+              <Link to="/shop" className="hover:text-neutral-950 transition-colors">
+                Products
+              </Link>
+              <Link to="/category/skincare" className="hover:text-neutral-950 transition-colors">
+                Skincare
+              </Link>
+              <Link to="/collection/best-sellers" className="hover:text-neutral-950 transition-colors">
+                Packages
+              </Link>
+            </nav>
 
-                  {/* Main Campaign Headline */}
-                  <motion.h1
-                    id="hero-banner-title"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.12, duration: 0.35 }}
-                    className="mt-4 font-display text-3xl font-normal leading-[1.14] tracking-tight text-ink sm:mt-5 sm:text-4xl sm:leading-[1.12] md:text-[48px] md:leading-[1.14] lg:text-[52px] lg:leading-[1.12] xl:text-[58px] xl:leading-[1.12]"
-                  >
-                    {currentSlide.title}
-                  </motion.h1>
-
-                  {/* Campaign Description */}
-                  <motion.p
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.16, duration: 0.35 }}
-                    className="mt-5 max-w-xl font-sans text-sm leading-relaxed text-ink-2 sm:mt-6 sm:text-base md:text-lg"
-                  >
-                    {currentSlide.description}
-                  </motion.p>
-
-                  {/* CTA Buttons */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.35 }}
-                    className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center"
-                  >
-                    <Link
-                      to={currentSlide.ctaUrl}
-                      className="inline-flex h-12 items-center justify-center rounded-lg bg-brand px-7 text-sm font-medium tracking-wide text-white shadow-2xs transition-colors hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
-                    >
-                      {currentSlide.ctaText}
-                    </Link>
-                    {currentSlide.secondaryCtaText && currentSlide.secondaryCtaUrl && (
-                      <Link
-                        to={currentSlide.secondaryCtaUrl}
-                        className="inline-flex h-12 items-center justify-center rounded-lg border border-line bg-surface/80 px-7 text-sm font-medium tracking-wide text-ink transition-colors hover:border-ink/30 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2"
-                      >
-                        {currentSlide.secondaryCtaText}
-                      </Link>
-                    )}
-                  </motion.div>
-                </div>
-
-                {/* ─── Right Edge-to-Edge Campaign Photography (Full Height) ─ */}
-                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden lg:col-span-6 lg:h-full lg:min-h-[560px] lg:aspect-auto xl:col-span-6 xl:min-h-[600px]">
-                  <picture className="block h-full w-full">
-                    {currentSlide.mobileImage && (
-                      <source
-                        media="(max-width: 640px)"
-                        srcSet={currentSlide.mobileImage}
-                      />
-                    )}
-                    <img
-                      src={currentSlide.desktopImage}
-                      alt={currentSlide.imageAlt}
-                      loading={currentIndex === 0 ? 'eager' : 'lazy'}
-                      className="h-full w-full object-cover object-[70%_center] lg:object-[65%_center] transition-transform duration-700 ease-out"
-                    />
-                  </picture>
-                </div>
-
+            {/* Small Brand Intro + 2-Line Menu Icon */}
+            <div className="flex items-center gap-6 lg:gap-10">
+              <div className="hidden lg:block text-right">
+                <p className="text-xs text-neutral-500 tracking-normal">
+                  {currentSlide.tagline}{' '}
+                  <span className="font-semibold text-neutral-900">{currentSlide.sinceYear}</span>
+                </p>
               </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
 
-        {/* ─── 2. MINIMAL PAGINATION DOTS (Centered at Bottom) ─────────────── */}
-        {totalSlides > 1 && (
-          <div className="absolute bottom-4 sm:bottom-5 inset-x-0 z-20 flex items-center justify-center pointer-events-none">
-            <div className="flex items-center gap-1.5 pointer-events-auto">
-              {slides.map((slide, idx) => {
-                const isActive = idx === (currentIndex % totalSlides);
-                return (
-                  <button
-                    key={slide.id}
-                    type="button"
-                    onClick={() => goToSlide(idx, idx > currentIndex ? 1 : -1)}
-                    aria-label={`Go to slide ${idx + 1}: ${slide.title}`}
-                    className={`transition-all duration-300 focus-visible:outline-none ${
-                      isActive
-                        ? 'h-1.5 w-4 rounded-full bg-[#8E5258]'
-                        : 'h-1.5 w-1.5 rounded-full bg-stone-300 hover:bg-stone-400'
-                    }`}
-                  />
-                );
-              })}
+              {/* Minimal 2-Line Hamburger Icon */}
+              <button
+                type="button"
+                aria-label="Open menu"
+                className="flex flex-col justify-center items-end gap-1.5 w-8 h-8 text-neutral-900 hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-900"
+                onClick={() => {
+                  const headerMenuBtn = document.querySelector<HTMLButtonElement>(
+                    'header button[aria-label*="menu" i]'
+                  );
+                  headerMenuBtn?.click();
+                }}
+              >
+                <span className="w-6 h-[2px] bg-neutral-900 rounded-full" />
+                <span className="w-4 h-[2px] bg-neutral-900 rounded-full" />
+              </button>
             </div>
           </div>
-        )}
+
+          {/* ─── Editorial Hero Composition ───────────────────────────────── */}
+          <div className="relative pt-4 sm:pt-8 lg:pt-10">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-x-8 items-start"
+              >
+                {/* ─── Left Editorial Content Column (Span 8) ─────────────── */}
+                <div className="lg:col-span-8 xl:col-span-7 z-20">
+                  {/* Oversized Editorial Typography */}
+                  <h1 className="font-sans font-black tracking-[-0.04em] text-neutral-950 text-[52px] leading-[0.9] sm:text-[76px] sm:leading-[0.88] md:text-[96px] md:leading-[0.86] lg:text-[112px] lg:leading-[0.86] xl:text-[132px] xl:leading-[0.84] 2xl:text-[144px]">
+                    <span className="block text-neutral-950">
+                      {currentSlide.headlineLine1}
+                    </span>
+                    <span className="block whitespace-nowrap">
+                      <span className="text-neutral-950">{currentSlide.headlineLine2Lead}</span>
+                      <span className="text-neutral-950 lg:text-white lg:drop-shadow-[0_2px_14px_rgba(0,0,0,0.22)]">
+                        {currentSlide.headlineLine2Overlap}
+                      </span>
+                    </span>
+                  </h1>
+
+                  {/* Two Pill CTA Buttons */}
+                  <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-3.5 sm:gap-4">
+                    <Link
+                      to={currentSlide.ctaPrimaryUrl}
+                      className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-neutral-950 px-7 sm:px-8 py-3.5 text-xs sm:text-sm font-medium tracking-wide text-white transition-all duration-300 hover:bg-neutral-800 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2"
+                    >
+                      <span>{currentSlide.ctaPrimaryText}</span>
+                      <span
+                        aria-hidden="true"
+                        className="transition-transform duration-200 group-hover:translate-x-1"
+                      >
+                        →
+                      </span>
+                    </Link>
+
+                    <Link
+                      to={currentSlide.ctaSecondaryUrl}
+                      className="group inline-flex items-center justify-center gap-2.5 rounded-full border border-neutral-400 bg-white/30 backdrop-blur-xs px-7 sm:px-8 py-3.5 text-xs sm:text-sm font-medium tracking-wide text-neutral-900 transition-all duration-300 hover:border-neutral-950 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2"
+                    >
+                      <span>{currentSlide.ctaSecondaryText}</span>
+                      <span
+                        aria-hidden="true"
+                        className="transition-transform duration-200 group-hover:translate-x-1"
+                      >
+                        →
+                      </span>
+                    </Link>
+                  </div>
+
+                  {/* Supporting Description */}
+                  <p className="mt-6 sm:mt-7 max-w-lg font-sans text-xs sm:text-sm md:text-[15px] leading-relaxed text-neutral-600">
+                    {currentSlide.description}
+                  </p>
+
+                  {/* Three Small Square Product Previews (Bottom-Left) */}
+                  <div className="mt-8 sm:mt-10 pt-2">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      {heroProductPreviews.map((prod) => (
+                        <Link
+                          key={prod.id}
+                          to={`/product/${prod.slug}`}
+                          title={`${prod.name} (${prod.category})`}
+                          className="group relative aspect-square w-16 sm:w-20 md:w-22 overflow-hidden rounded-md bg-white border border-neutral-300/80 shadow-xs transition-all duration-300 hover:scale-105 hover:shadow-md hover:border-neutral-900"
+                        >
+                          <img
+                            src={prod.image}
+                            alt={prod.name}
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* ─── Right Column: Large Rectangular Campaign Photography ── */}
+                <div className="lg:col-span-4 xl:col-span-5 relative mt-4 lg:mt-0">
+                  <div className="relative lg:-ml-12 xl:-ml-20 z-10 w-full max-w-[500px] mx-auto lg:max-w-none">
+                    {/* Rectangular Image with clean edges */}
+                    <div className="relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] w-full overflow-hidden bg-stone-200 shadow-xl border border-neutral-300/60">
+                      <img
+                        src={currentSlide.image}
+                        alt={currentSlide.imageAlt}
+                        className="h-full w-full object-cover object-[55%_center] transition-transform duration-700 ease-out hover:scale-[1.02]"
+                        loading="eager"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* ─── Floating Controls: Vertical Scroll Indicator & Slide Dots ──── */}
+          <div className="absolute right-6 sm:right-10 lg:right-16 bottom-8 sm:bottom-10 lg:bottom-12 z-30 flex flex-col items-center gap-4">
+            {/* Subtle Slide Indicators */}
+            {totalSlides > 1 && (
+              <div className="flex items-center gap-1.5 mb-1 bg-white/70 backdrop-blur-xs px-2.5 py-1.5 rounded-full border border-neutral-300/60 shadow-xs">
+                {editorialSlides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setCurrentIndex(idx)}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    className={`transition-all duration-300 rounded-full focus-visible:outline-none ${
+                      idx === currentIndex
+                        ? 'h-1.5 w-4 bg-neutral-950'
+                        : 'h-1.5 w-1.5 bg-neutral-400 hover:bg-neutral-600'
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+
+            {/* Vertical Scroll Indicator (Coral / Terracotta Capsule) */}
+            <button
+              type="button"
+              onClick={scrollToNext}
+              aria-label="Scroll to next section"
+              className="group flex h-14 w-8 items-center justify-center rounded-full bg-[#E85D45] text-white shadow-md transition-all duration-300 hover:bg-[#D44D36] hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D45] focus-visible:ring-offset-2"
+            >
+              <ArrowDown className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+            </button>
+          </div>
+
+        </div>
       </section>
 
-      {/* ─── 3. CONTINUOUS PROMOTIONAL ANNOUNCEMENT MARQUEE ───────────────── */}
+      {/* ─── 2. CONTINUOUS PROMOTIONAL ANNOUNCEMENT MARQUEE ─────────────── */}
       <div
         role="region"
         aria-label="Promotional announcements marquee"
@@ -294,7 +426,7 @@ export function HeroCampaign() {
             ))}
           </div>
 
-          {/* Track 2 (Duplicates for seamless loop without blank gaps) */}
+          {/* Track 2 */}
           <div className="flex shrink-0 items-center justify-around gap-8 sm:gap-12 pr-8 sm:pr-12">
             {validMarquee.map((item) => (
               <span key={`t2-${item.id}`} className="inline-flex items-center gap-8 sm:gap-12">
