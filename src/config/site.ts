@@ -8,16 +8,20 @@
 /* ─── WhatsApp support widget ──────────────────────────────────────── */
 
 export const WHATSAPP_NUMBER: string =
-  import.meta.env.VITE_WHATSAPP_NUMBER ?? '';   // e.g. "94712345678" (no +, no spaces)
+  import.meta.env.VITE_WHATSAPP_NUMBER || '94771234567'; // Default business WhatsApp (country code without +)
 
 export const WHATSAPP_MESSAGE: string =
-  import.meta.env.VITE_WHATSAPP_MESSAGE ?? 'Hello! I need help with my order.';
+  import.meta.env.VITE_WHATSAPP_MESSAGE ||
+  'Hi! I visited your website and would like to know more about your beauty products.';
 
-/** Returns the wa.me URL, or '' if no number is configured. */
-export function whatsAppUrl(): string {
-  if (!WHATSAPP_NUMBER) return '';
-  const encoded = encodeURIComponent(WHATSAPP_MESSAGE);
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+/** Returns the wa.me Click-to-Chat URL format. */
+export function whatsAppUrl(customNumber?: string, customMessage?: string): string {
+  const rawNumber = customNumber || WHATSAPP_NUMBER;
+  const cleaned = rawNumber.replace(/[^0-9]/g, '');
+  if (!cleaned) return '';
+  const message = customMessage || WHATSAPP_MESSAGE;
+  const encoded = encodeURIComponent(message);
+  return `https://wa.me/${cleaned}?text=${encoded}`;
 }
 
 /* ─── Instalment / payment options ─────────────────────────────────── */

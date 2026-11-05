@@ -4,6 +4,8 @@ import { AnnouncementBar } from './AnnouncementBar';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { CartDrawer } from './CartDrawer';
+import { WhatsAppWidget } from '../ui/WhatsAppWidget';
+import { AdminNavModal } from '../admin/AdminNavModal';
 
 export function Layout() {
   const { pathname, hash } = useLocation();
@@ -36,8 +38,10 @@ export function Layout() {
       </main>
       <Footer />
       <CartDrawer />
-    </div>);
-
+      <WhatsAppWidget />
+      <AdminNavModal />
+    </div>
+  );
 }
 
 /** Focused shell for checkout — minimal distractions. */
