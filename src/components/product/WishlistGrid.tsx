@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { HeartIcon, ShoppingBagIcon, XIcon } from 'lucide-react';
 import { toast } from 'sonner';
@@ -24,7 +24,7 @@ export function WishlistGrid() {
       return;
     }
     remove(p.id);
-    toast.success('Moved to your bag', { description: `${p.name} Â· ${variant.label}` });
+    toast.success('Moved to your bag', { description: `${p.name} · ${variant.label}` });
     openDrawer();
   };
 
@@ -44,7 +44,7 @@ export function WishlistGrid() {
       {isGuestList &&
       <Alert tone="info" className="mb-8">
           Your wishlist is saved on this device. <Link to="/login?redirect=/wishlist" className="font-medium text-ink underline underline-offset-2">Sign in</Link> or{' '}
-          <Link to="/register" className="font-medium text-ink underline underline-offset-2">create an account</Link> to keep it across devices â€” weâ€™ll merge these items in.
+          <Link to="/register" className="font-medium text-ink underline underline-offset-2">create an account</Link> to keep it across devices — we’ll merge these items in.
         </Alert>
       }
       <ul className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import type { Product } from '../../types/catalog';
 import { ProductCard } from './ProductCard';

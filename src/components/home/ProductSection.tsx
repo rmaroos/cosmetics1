@@ -4,6 +4,7 @@ import { Container } from '../layout/Container';
 import { ProductCard } from '../product/ProductCard';
 import { ScrollItem } from '../ui/ScrollReveal';
 import { MobileViewAll, SectionHeader } from '../ui/SectionHeader';
+import { SectionBotanicals, type BotanicalLayout } from '../ui/Botanicals';
 
 type Props = {
   id?: string;
@@ -14,6 +15,8 @@ type Props = {
   viewAllLabel?: string;
   columns?: 4 | 5;
   className?: string;
+  /** Faint leaf/flower decorations in the section's empty corners. */
+  decor?: BotanicalLayout;
 };
 
 export function ProductSection({
@@ -25,6 +28,7 @@ export function ProductSection({
   viewAllLabel = 'View All',
   columns = 4,
   className = 'py-16 md:py-24',
+  decor,
 }: Props) {
   if (!products.length) return null;
 
@@ -34,8 +38,11 @@ export function ProductSection({
   const headingId = id || title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
   return (
-    <section aria-labelledby={headingId} className={className}>
-      <Container>
+    <section aria-labelledby={headingId} className={`relative overflow-hidden ${className}`}>
+      {decor && <SectionBotanicals layout={decor} />}
+      <Container className="relative">
+
+
         <SectionHeader
           id={headingId}
           title={title}

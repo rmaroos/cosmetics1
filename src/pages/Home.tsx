@@ -56,6 +56,7 @@ export function Home() {
         products={bestSellers}
         viewAllHref="/collection/best-sellers"
         viewAllLabel="Shop all best sellers"
+        decor="a"
       />
 
       {/* 5. New Arrivals — 3 rows (12 products) */}
@@ -67,6 +68,7 @@ export function Home() {
         viewAllHref="/collection/new-arrivals"
         viewAllLabel="Shop all new arrivals"
         className="border-t border-line/70 py-16 md:py-24"
+        decor="b"
       />
 
       {/* 6. Shop by skin type */}
@@ -81,6 +83,7 @@ export function Home() {
         viewAllHref="/category/skincare"
         viewAllLabel="Shop all skincare"
         className="py-16 md:py-24"
+        decor="d"
       />
 
       {/* 8. Makeup & Fragrance — 2 rows (8 products) */}
@@ -92,6 +95,7 @@ export function Home() {
         viewAllHref="/category/makeup"
         viewAllLabel="Shop all makeup"
         className="bg-sand py-16 md:py-24"
+        decor="c"
       />
 
       {/* 6. Shop by brand */}
