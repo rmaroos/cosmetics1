@@ -1,0 +1,11 @@
+import type { Ingredient } from '../types/content';
+
+export const ingredients: Ingredient[] = [
+{ slug: 'niacinamide', name: 'Niacinamide', summary: 'A form of vitamin B3 that helps skin look more even and balanced.', goodFor: ['uneven-tone', 'large-pores', 'acne-blemishes'], pairsWith: 'Hyaluronic acid, ceramides, sunscreen' },
+{ slug: 'vitamin-c', name: 'Vitamin C', summary: 'An antioxidant used to help skin look brighter and more radiant.', goodFor: ['dullness', 'uneven-tone'], pairsWith: 'Vitamin E, ferulic acid, sunscreen', caution: 'Can tingle on sensitive skin. Store away from light.' },
+{ slug: 'ceramides', name: 'Ceramides', summary: 'Lipids naturally found in skin that help maintain a healthy barrier.', goodFor: ['dehydration', 'redness'], pairsWith: 'Cholesterol, fatty acids, niacinamide' },
+{ slug: 'hyaluronic-acid', name: 'Hyaluronic acid', summary: 'A humectant that helps skin hold onto water for a plumper feel.', goodFor: ['dehydration', 'fine-lines'], pairsWith: 'Almost everything — apply to damp skin' },
+{ slug: 'glycolic-acid', name: 'Glycolic acid (AHA)', summary: 'An exfoliating acid that helps remove dull surface cells.', goodFor: ['dullness', 'uneven-tone', 'large-pores'], pairsWith: 'Hydrating toners and moisturisers', caution: 'Increases sun sensitivity. Avoid using with retinoids on the same night.' },
+{ slug: 'retinal', name: 'Retinal', summary: 'A vitamin A derivative that helps skin look smoother over time.', goodFor: ['fine-lines', 'uneven-tone'], pairsWith: 'Ceramides, peptides, sunscreen', caution: 'Introduce gradually. Not recommended during pregnancy.' },
+{ slug: 'centella-asiatica', name: 'Centella asiatica (gotu kola)', summary: 'A traditional botanical used to help skin feel calm and comfortable.', goodFor: ['redness'], pairsWith: 'Panthenol, ceramides' },
+{ slug: 'zinc-oxide', name: 'Zinc oxide', summary: 'A mineral UV filter offering broad-spectrum protection.', goodFor: ['sun-protection', 'redness'], pairsWith: 'Antioxidant serums underneath' }];

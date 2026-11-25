@@ -1,0 +1,238 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+/* TEMPORARY FALLBACK FONTS — these are NOT Canela or Suisse Int'l.
+   They only render until the licensed WOFF2 files are added to /public/fonts/.
+   Remove this @import once both licensed families are in place. */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500&display=swap');
+
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+/* ═══════════════════════════════════════════════════════════════════
+   LICENSED WEBFONTS (self-hosted WOFF2, font-display: swap)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Primary — Canela · /public/fonts/canela/ */
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/canela/Canela-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/canela/Canela-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/canela/Canela-RegularItalic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  /* Headings never go heavier than Medium */
+  font-family: 'Canela';
+  src: url('/fonts/canela/Canela-Medium.woff2') format('woff2');
+  font-weight: 500 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Secondary — Suisse Int'l · /public/fonts/suisse-intl/ */
+@font-face {
+  font-family: 'Suisse Intl';
+  src: url('/fonts/suisse-intl/SuisseIntl-Regular.woff2') format('woff2');
+  font-weight: 300 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Suisse Intl';
+  src: url('/fonts/suisse-intl/SuisseIntl-RegularItalic.woff2') format('woff2');
+  font-weight: 300 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  /* UI text never goes heavier than Medium */
+  font-family: 'Suisse Intl';
+  src: url('/fonts/suisse-intl/SuisseIntl-Medium.woff2') format('woff2');
+  font-weight: 500 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: light;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  @apply bg-ivory font-sans text-ui-body font-normal text-ink antialiased;
+  font-feature-settings: 'kern', 'liga';
+  text-rendering: optimizeLegibility;
+  /* Never allow accidental sideways scroll.
+     `clip` (unlike `hidden`) keeps the sticky header working. */
+  overflow-x: clip;
+}
+/* Form inputs: 14px on desktop; 16px on small screens so iOS never auto-zooms */
+input,
+select,
+textarea {
+  @apply font-sans text-base font-normal md:text-sm;
+}
+input::placeholder,
+textarea::placeholder {
+  color: theme('colors.ink.muted');
+}
+::selection {
+  background: theme('colors.brand.soft');
+  color: theme('colors.ink.DEFAULT');
+}
+/* Focus border — Cardamom Green */
+:focus-visible {
+  outline: 2px solid theme('colors.brand.DEFAULT');
+  outline-offset: 2px;
+}
+/* Native checkboxes / radios pick up the brand colour */
+input[type='checkbox'],
+input[type='radio'] {
+  accent-color: theme('colors.brand.DEFAULT');
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TYPOGRAPHY SYSTEM — use these classes instead of ad-hoc sizes
+   ═══════════════════════════════════════════════════════════════════ */
+@layer components {
+  /* Canela — editorial headings */
+  .type-hero {
+    @apply font-display text-display-hero font-light;
+  }
+  .type-page {
+    @apply font-display text-display-page font-normal;
+  }
+  .type-section {
+    @apply font-display text-display-section font-normal;
+  }
+  .type-category {
+    @apply font-display text-display-category font-normal;
+  }
+
+  /* Suisse Int'l — functional UI */
+  .type-nav {
+    @apply font-sans text-ui-nav font-medium;
+  }
+  .type-button {
+    @apply font-sans text-ui-button font-medium uppercase;
+  }
+  .type-label {
+    @apply font-sans text-ui-label font-medium uppercase;
+  }
+  .type-product {
+    @apply font-sans text-ui-product font-medium;
+  }
+
+  /* Section heading (alias kept for existing markup) */
+  .heading-xl {
+    @apply type-section text-brand;
+  }
+
+  /* Warm Sand surfaces: secondary / muted text darkens so it stays WCAG AA
+     (ink-2 is only 4.1:1 on sand; ink.sand is 5.2:1). Utilities still override. */
+  .bg-sand .text-ink-2,
+  .bg-sand .text-ink-muted {
+    color: theme('colors.ink.sand');
+  }
+
+  /* Understated text link with animated underline */
+  .link-luxe {
+    @apply type-button relative inline-flex items-center gap-2 text-brand transition-colors duration-200 hover:text-brand-hover;
+  }
+  .link-luxe::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-px w-full origin-left scale-x-100 bg-current transition-transform duration-300 ease-out;
+  }
+  .link-luxe:hover::after {
+    @apply scale-x-0 origin-right;
+  }
+
+  /* Scattered small flowers & leaves at 20% opacity (public/decor/botanical-scatter.svg).
+     Used ONLY on the footer. Do not add to other sections or pages. */
+  .bg-botanical {
+    background-image: url('/decor/botanical-scatter.svg');
+    background-size: 480px 480px;
+    background-repeat: repeat;
+  }
+
+  /* Subtle grain overlay for hero/editorial surfaces */
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Long-form editorial content (articles, info pages) */
+.prose-content h2 {
+  @apply type-category mb-4 mt-12 text-ink;
+}
+.prose-content h3 {
+  @apply mb-2 mt-8 text-lg font-medium text-ink;
+}
+.prose-content p {
+  @apply mb-5 text-base leading-[1.75] text-ink-2;
+}
+.prose-content ul {
+  @apply mb-5 list-disc space-y-1.5 pl-5 text-base leading-[1.75] text-ink-2;
+}
+
+/* Continuous Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
