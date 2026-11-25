@@ -6,8 +6,8 @@ import { ProductSection } from '../components/home/ProductSection';
 import { getCollectionBySlug, productsInCategory, productsInCollection } from '../utils/catalog';
 import type { Product } from '../types/catalog';
 
-const HOME_GRID_LIMIT = 12; // 3 rows × 4 columns on desktop
-const HOME_EDIT_LIMIT = 8; // 2 rows × 4 columns on desktop
+const HOME_GRID_LIMIT = 15; // 3 rows × 5 columns on desktop
+const HOME_EDIT_LIMIT = 10; // 2 rows × 5 columns on desktop
 
 function collectionProducts(slug: string) {
   const collection = getCollectionBySlug(slug);

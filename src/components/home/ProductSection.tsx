@@ -32,8 +32,8 @@ export function ProductSection({
 }: Props) {
   if (!products.length) return null;
 
-  // 2 mobile · 3 large phone · 4 tablet · 6 laptop & desktop
-  const colClass = 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6';
+  // 2 mobile · 3 large phone · 4 tablet · 5 laptop & desktop
+  const colClass = 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5';
 
   const headingId = id || title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 

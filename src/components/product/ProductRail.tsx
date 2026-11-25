@@ -50,7 +50,7 @@ export function ProductRail({ title, description, products, viewAllHref, heading
         </div>
         <ul ref={scroller} className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:gap-4 sm:px-6 lg:mx-0 lg:px-0">
           {products.map((p) =>
-          <li key={p.id} className="w-[46%] shrink-0 snap-start sm:w-[31%] md:w-[calc(25%-12px)] lg:w-[calc(16.666%-13.4px)]">
+          <li key={p.id} className="w-[46%] shrink-0 snap-start sm:w-[31%] md:w-[calc(25%-12px)] lg:w-[calc(20%-12.8px)]">
               <ProductCard product={p} />
             </li>
           )}
