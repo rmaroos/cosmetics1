@@ -32,7 +32,7 @@ export interface BannerSliderSettings {
 export const defaultBannerSlides: HeroBannerSlide[] = [
   {
     id: 'slide-brand',
-    eyebrow: 'INTRODUCING NELUM BEAUTY',
+    eyebrow: 'INTRODUCING KARDAMON',
     title: 'Beauty that feels as good as it looks.',
     description: 'Dermatologist-tested skincare and beauty essentials crafted for tropical climates and everyday radiance.',
     ctaText: 'Shop Best Sellers',

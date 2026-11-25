@@ -1,10 +1,10 @@
-# Nelum Beauty — Administration Portal
+# Kardamon — Administration Portal
 
-Standalone administration application for Nelum Beauty online cosmetics and beauty products e-commerce platform.
+Standalone administration application for Kardamon online cosmetics and beauty products e-commerce platform.
 
 ## Vercel Deployment Instructions
 
-To deploy this Admin Panel as a dedicated application (e.g. `admin.nelummbeauty.lk` or `nelum-admin.vercel.app`) on Vercel:
+To deploy this Admin Panel as a dedicated application (e.g. `admin.kardamon.lk` or `kardamon-admin.vercel.app`) on Vercel:
 
 1. In the Vercel Dashboard, click **Add New...** > **Project**.
 2. Select your repository: `cosmetics1`.
@@ -58,5 +58,5 @@ The portal runs on `http://localhost:5175`.
 
 ## Default Admin Credentials
 
-- **Email**: `admin@nelum.lk`
+- **Email**: `admin@kardamon.lk`
 - **Password**: `admin123`

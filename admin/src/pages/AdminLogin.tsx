@@ -7,7 +7,7 @@ import type { AdminRole } from '../types/admin';
 
 export function AdminLogin() {
   const { login } = useAdminAuth();
-  const [email, setEmail] = useState('admin@nelum.lk');
+  const [email, setEmail] = useState('admin@kardamon.lk');
   const [password, setPassword] = useState('admin123');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -42,7 +42,7 @@ export function AdminLogin() {
             N
           </div>
           <h1 className="font-serif text-2xl font-bold tracking-tight text-neutral-900">
-            Nelum Beauty Admin
+            Kardamon Admin
           </h1>
           <p className="mt-1 text-xs text-neutral-500">
             Enter your credentials to access the store management panel
@@ -69,7 +69,7 @@ export function AdminLogin() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full h-11 pl-10 pr-3 rounded-xl border border-neutral-200 text-sm focus:border-[#9F2438] focus:ring-1 focus:ring-[#9F2438] focus:outline-none"
-                placeholder="name@nelum.lk"
+                placeholder="name@kardamon.lk"
               />
             </div>
           </div>
@@ -149,7 +149,7 @@ export function AdminLogin() {
             to="/"
             className="text-xs font-medium text-neutral-500 hover:text-neutral-900 transition-colors"
           >
-            ← Return to Nelum Beauty Storefront
+            ← Return to Kardamon Storefront
           </Link>
         </div>
       </div>

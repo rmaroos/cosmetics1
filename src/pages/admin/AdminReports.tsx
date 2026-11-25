@@ -44,7 +44,7 @@ export function AdminReports() {
       o.status,
       o.total,
     ]);
-    exportToCSV('nelum-sales-report', [headers, ...data]);
+    exportToCSV('kardamon-sales-report', [headers, ...data]);
   };
 
   const handleExportProducts = () => {
@@ -57,7 +57,7 @@ export function AdminReports() {
       p.variants.reduce((sum, v) => sum + v.stock, 0),
       p.salesRank,
     ]);
-    exportToCSV('nelum-products-report', [headers, ...data]);
+    exportToCSV('kardamon-products-report', [headers, ...data]);
   };
 
   const handleExportInventory = () => {
@@ -72,7 +72,7 @@ export function AdminReports() {
         v.stock * v.price,
       ])
     );
-    exportToCSV('nelum-inventory-valuation', [headers, ...data]);
+    exportToCSV('kardamon-inventory-valuation', [headers, ...data]);
   };
 
   const totalRevenue = orders.reduce((sum, o) => sum + (o.status !== 'cancelled' ? o.total : 0), 0);

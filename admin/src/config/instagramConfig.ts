@@ -42,8 +42,8 @@ export interface InstagramSectionSettings {
 
 /* ─── Default Profile Information ────────────────────────────────────────── */
 export const defaultInstagramProfile: InstagramProfileConfig = {
-  username: '@nelumbeauty',
-  profileUrl: 'https://instagram.com/nelumbeauty',
+  username: '@kardamon',
+  profileUrl: 'https://instagram.com/kardamon',
   profileImage: img.serum,
   sectionHeading: 'Stay Connected',
   supportingHeading: 'Follow Us on Instagram',
@@ -70,10 +70,10 @@ export const defaultInstagramPosts: InstagramPost[] = [
   {
     id: 'ig-post-1',
     imageUrl: img.creamJar,
-    postUrl: 'https://www.instagram.com/nelumbeauty/p/C3mNelum01/',
+    postUrl: 'https://www.instagram.com/kardamon/p/C3mKardamon01/',
     caption: 'Restorative Barrier Cream: rich hydration formulated for humid island days.',
     mediaType: 'image',
-    altText: 'Glass jar of Nelum restorative facial barrier moisturiser on warm stone',
+    altText: 'Glass jar of Kardamon restorative facial barrier moisturiser on warm stone',
     order: 1,
     active: true,
     publishedAt: '2026-04-18T10:00:00Z',
@@ -81,7 +81,7 @@ export const defaultInstagramPosts: InstagramPost[] = [
   {
     id: 'ig-post-2',
     imageUrl: img.serum,
-    postUrl: 'https://www.instagram.com/nelumbeauty/p/C3mNelum02/',
+    postUrl: 'https://www.instagram.com/kardamon/p/C3mKardamon02/',
     caption: 'New Arrival: Botanical Vitamin C Radiance Serum for daily luminous glow.',
     mediaType: 'image',
     altText: 'Amber glass serum dropper bottle with golden botanical facial oil',
@@ -92,7 +92,7 @@ export const defaultInstagramPosts: InstagramPost[] = [
   {
     id: 'ig-post-3',
     imageUrl: img.editorialRoutine,
-    postUrl: 'https://www.instagram.com/nelumbeauty/reel/C3mNelum03/',
+    postUrl: 'https://www.instagram.com/kardamon/reel/C3mKardamon03/',
     caption: 'Watch: 5-minute morning hydration ritual for tropical skin comfort.',
     mediaType: 'video',
     altText: 'Beauty tutorial demonstration showcasing soothing facial essence routine',
@@ -103,7 +103,7 @@ export const defaultInstagramPosts: InstagramPost[] = [
   {
     id: 'ig-post-4',
     imageUrl: img.lipstick,
-    postUrl: 'https://www.instagram.com/nelumbeauty/p/C3mNelum04/',
+    postUrl: 'https://www.instagram.com/kardamon/p/C3mKardamon04/',
     caption: 'Velvet Rose Satin Lip Edit: weightless colour tailored for warm undertones.',
     mediaType: 'image',
     altText: 'Sleek luxury rose-gold lipstick tube with velvety dusty-rose bullet',
@@ -114,7 +114,7 @@ export const defaultInstagramPosts: InstagramPost[] = [
   {
     id: 'ig-post-5',
     imageUrl: img.palette,
-    postUrl: 'https://www.instagram.com/nelumbeauty/p/C3mNelum05/',
+    postUrl: 'https://www.instagram.com/kardamon/p/C3mKardamon05/',
     caption: 'Radiant Complexion Palette: blendable, breathable shimmer for warm skin tones.',
     mediaType: 'image',
     altText: 'Multi-pan cosmetic eyeshadow and highlighter palette flat lay',
@@ -125,7 +125,7 @@ export const defaultInstagramPosts: InstagramPost[] = [
   {
     id: 'ig-post-6',
     imageUrl: img.sunscreen,
-    postUrl: 'https://www.instagram.com/nelumbeauty/p/C3mNelum06/',
+    postUrl: 'https://www.instagram.com/kardamon/p/C3mKardamon06/',
     caption: 'Daily Mineral SPF 50: zero white cast, non-sticky matte finish for everyday protection.',
     mediaType: 'image',
     altText: 'Clean minimalist sunscreen tube with hydrating lightweight UV shield lotion',
@@ -136,7 +136,7 @@ export const defaultInstagramPosts: InstagramPost[] = [
   {
     id: 'ig-post-7',
     imageUrl: img.cleanser,
-    postUrl: 'https://www.instagram.com/nelumbeauty/reel/C3mNelum07/',
+    postUrl: 'https://www.instagram.com/kardamon/reel/C3mKardamon07/',
     caption: 'Watch: Gentle Cleansing Melt melts away waterproof sunscreen and daily buildup.',
     mediaType: 'video',
     altText: 'Gentle purifying botanical facial cleanser gel pump bottle',
@@ -147,7 +147,7 @@ export const defaultInstagramPosts: InstagramPost[] = [
   {
     id: 'ig-post-8',
     imageUrl: img.campaignSkincare,
-    postUrl: 'https://www.instagram.com/nelumbeauty/reel/C3mNelum08/',
+    postUrl: 'https://www.instagram.com/kardamon/reel/C3mKardamon08/',
     caption: 'Behind the glow: inside our curated botanical collection & editorial shoot.',
     mediaType: 'video',
     altText: 'Editorial lifestyle skincare collection flat lay featuring frosted glass bottles',
@@ -158,7 +158,7 @@ export const defaultInstagramPosts: InstagramPost[] = [
   {
     id: 'ig-post-9',
     imageUrl: img.clayMask,
-    postUrl: 'https://www.instagram.com/nelumbeauty/p/C3mNelum09/',
+    postUrl: 'https://www.instagram.com/kardamon/p/C3mKardamon09/',
     caption: 'Sunday Self-Care: clarifying pink clay mask for smooth pore refinement.',
     mediaType: 'image',
     altText: 'Earthenware jar of restorative pink botanical clay facial mask',
@@ -169,7 +169,7 @@ export const defaultInstagramPosts: InstagramPost[] = [
   {
     id: 'ig-post-10',
     imageUrl: img.perfume,
-    postUrl: 'https://www.instagram.com/nelumbeauty/p/C3mNelum10/',
+    postUrl: 'https://www.instagram.com/kardamon/p/C3mKardamon10/',
     caption: 'Island Jasmine & Lotus: luminous botanical fragrance inspired by Ceylon dawn.',
     mediaType: 'image',
     altText: 'Faceted glass perfume bottle with natural golden fragrance essence',
@@ -260,7 +260,7 @@ export function getActiveInstagramPosts(): InstagramPost[] {
 /* ─── Event Notifier ─────────────────────────────────────────────────────── */
 function notifyInstagramUpdated(): void {
   if (typeof window !== 'undefined') {
-    window.dispatchEvent(new Event('nelum:instagram-updated'));
+    window.dispatchEvent(new Event('kardamon:instagram-updated'));
     window.dispatchEvent(new Event('storage'));
   }
 }
@@ -307,10 +307,10 @@ export async function fetchInstagramFeedWithFallback(
       const mapped: InstagramPost[] = remoteItems.map((item: any, idx: number) => ({
         id: item.id || `remote-${idx}`,
         imageUrl: item.media_url || item.thumbnail_url || item.image || img.serum,
-        postUrl: item.permalink || item.url || settings.apiEndpoint || 'https://instagram.com/nelumbeauty',
+        postUrl: item.permalink || item.url || settings.apiEndpoint || 'https://instagram.com/kardamon',
         caption: item.caption || '',
         mediaType: item.media_type === 'VIDEO' ? 'video' : 'image',
-        altText: item.caption ? item.caption.slice(0, 100) : 'Nelum Beauty Instagram post',
+        altText: item.caption ? item.caption.slice(0, 100) : 'Kardamon Instagram post',
         order: idx + 1,
         active: true,
         publishedAt: item.timestamp,

@@ -21,7 +21,7 @@ export function WhatsAppWidget({ phoneNumber, message }: WhatsAppWidgetProps) {
   const [isDismissed, setIsDismissed] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
       try {
-        return sessionStorage.getItem('nelum:dismiss_whatsapp_card') === 'true';
+        return sessionStorage.getItem('kardamon:dismiss_whatsapp_card') === 'true';
       } catch {
         return false;
       }
@@ -34,7 +34,7 @@ export function WhatsAppWidget({ phoneNumber, message }: WhatsAppWidgetProps) {
     e.stopPropagation();
     setIsDismissed(true);
     try {
-      sessionStorage.setItem('nelum:dismiss_whatsapp_card', 'true');
+      sessionStorage.setItem('kardamon:dismiss_whatsapp_card', 'true');
     } catch {
       // Ignore sessionStorage exceptions in private browsing
     }
@@ -93,7 +93,7 @@ export function WhatsAppWidget({ phoneNumber, message }: WhatsAppWidgetProps) {
                 <div className="flex items-center gap-1.5 mb-1">
                   <span className="h-2 w-2 rounded-full bg-[#25D366]" aria-hidden="true" />
                   <span className="text-[11px] font-semibold uppercase tracking-wider text-[#128C7E]">
-                    Nelum Beauty Match
+                    Kardamon Match
                   </span>
                 </div>
 
@@ -140,7 +140,7 @@ export function WhatsAppWidget({ phoneNumber, message }: WhatsAppWidgetProps) {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Chat with Nelum Beauty on WhatsApp"
+            aria-label="Chat with Kardamon on WhatsApp"
             aria-describedby={isDismissed ? 'whatsapp-tooltip' : undefined}
             className="relative flex h-[54px] w-[54px] sm:h-[58px] sm:w-[58px] shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_4px_16px_rgba(0,0,0,0.14),0_2px_6px_rgba(37,211,102,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18),0_4px_12px_rgba(37,211,102,0.35)] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
           >

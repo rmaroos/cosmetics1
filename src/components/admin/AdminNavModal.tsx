@@ -283,10 +283,10 @@ export function AdminNavModal() {
     const newPost: InstagramPost = {
       id: `ig-post-${Date.now()}`,
       imageUrl: img.serum,
-      postUrl: draftInstagramProfile.profileUrl || 'https://instagram.com/nelumbeauty',
-      caption: 'New beauty favourite from Nelum Beauty.',
+      postUrl: draftInstagramProfile.profileUrl || 'https://instagram.com/kardamon',
+      caption: 'New beauty favourite from Kardamon.',
       mediaType: 'image',
-      altText: 'Nelum Beauty curated beauty post',
+      altText: 'Kardamon curated beauty post',
       order: draftInstagramPosts.length + 1,
       active: true,
       publishedAt: new Date().toISOString(),

@@ -38,7 +38,7 @@ const defaultStaff: AdminUser[] = [
   {
     id: 'staff-01',
     name: 'Dilshan Perera',
-    email: 'admin@nelum.lk',
+    email: 'admin@kardamon.lk',
     role: 'super_admin',
     phone: '+94 77 123 4567',
     active: true,
@@ -48,7 +48,7 @@ const defaultStaff: AdminUser[] = [
   {
     id: 'staff-02',
     name: 'Kavindi Fernando',
-    email: 'kavindi@nelum.lk',
+    email: 'kavindi@kardamon.lk',
     role: 'store_manager',
     phone: '+94 71 987 6543',
     active: true,
@@ -58,7 +58,7 @@ const defaultStaff: AdminUser[] = [
   {
     id: 'staff-03',
     name: 'Sahan Wickramasinghe',
-    email: 'sahan@nelum.lk',
+    email: 'sahan@kardamon.lk',
     role: 'product_manager',
     phone: '+94 75 456 7890',
     active: true,
@@ -68,7 +68,7 @@ const defaultStaff: AdminUser[] = [
   {
     id: 'staff-04',
     name: 'Anuki Jayawardena',
-    email: 'anuki@nelum.lk',
+    email: 'anuki@kardamon.lk',
     role: 'content_manager',
     phone: '+94 72 334 5566',
     active: true,
@@ -255,9 +255,9 @@ const defaultCmsSections: HomepageSectionConfig[] = [
 /* Default Settings */
 const defaultSettings: StoreSettings = {
   general: {
-    storeName: 'Nelum Beauty Sri Lanka',
-    logoUrl: '/images/nelum-logo.svg',
-    contactEmail: 'care@nelum.lk',
+    storeName: 'Kardamon Sri Lanka',
+    logoUrl: '/images/kardamon-logo.svg',
+    contactEmail: 'care@kardamon.lk',
     supportPhone: '+94 11 234 5678',
     whatsAppNumber: '94771234567',
     address: '42 Galle Road, Kollupitiya',
@@ -270,7 +270,7 @@ const defaultSettings: StoreSettings = {
     codEnabled: true,
     bankTransferEnabled: true,
     cardGatewayEnabled: false,
-    bankDetails: 'Commercial Bank of Ceylon\nAccount Name: Nelum Beauty Pvt Ltd\nAccount Number: 8009214451\nBranch: Kollupitiya',
+    bankDetails: 'Commercial Bank of Ceylon\nAccount Name: Kardamon Pvt Ltd\nAccount Number: 8009214451\nBranch: Kollupitiya',
     testMode: true,
   },
   shipping: {
@@ -287,10 +287,10 @@ const defaultSettings: StoreSettings = {
     orderConfirmationEmail: true,
     lowStockAlerts: true,
     lowStockThreshold: 5,
-    adminNotificationEmail: 'orders@nelum.lk',
+    adminNotificationEmail: 'orders@kardamon.lk',
   },
   seo: {
-    defaultTitle: 'Nelum Beauty | Pure Botanical Science & Luxury Cosmetics',
+    defaultTitle: 'Kardamon | Pure Botanical Science & Luxury Cosmetics',
     metaDescription: 'Shop dermatologist-tested skincare, makeup, and hair care crafted for tropical climates with fast islandwide delivery across Sri Lanka.',
     keywords: 'cosmetics, skincare, beauty, makeup, Sri Lanka, botanical, dermatologist tested',
   },
@@ -394,9 +394,9 @@ class AdminStore {
         action: 'INITIALIZE',
         entity: 'System',
         entityId: 'admin-core',
-        details: 'Admin panel database store initialized with Nelum Beauty catalog',
+        details: 'Admin panel database store initialized with Kardamon catalog',
         performedBy: 'System',
-        userEmail: 'admin@nelum.lk',
+        userEmail: 'admin@kardamon.lk',
         timestamp: new Date().toISOString(),
       },
     ]);
@@ -424,7 +424,7 @@ class AdminStore {
 
   private notify(entity: string) {
     if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('nelum:admin-updated', { detail: { entity } }));
+      window.dispatchEvent(new CustomEvent('kardamon:admin-updated', { detail: { entity } }));
     }
   }
 
@@ -436,7 +436,7 @@ class AdminStore {
       entityId,
       details,
       performedBy: user?.name || 'Administrator',
-      userEmail: user?.email || 'admin@nelum.lk',
+      userEmail: user?.email || 'admin@kardamon.lk',
       timestamp: new Date().toISOString(),
     };
     this.auditLogs = [entry, ...this.auditLogs].slice(0, 200); // keep last 200 logs

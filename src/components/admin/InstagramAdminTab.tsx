@@ -156,7 +156,7 @@ export function InstagramAdminTab({
               type="text"
               value={profile.username}
               onChange={(e) => onUpdateProfile('username', e.target.value)}
-              placeholder="e.g. @nelumbeauty"
+              placeholder="e.g. @kardamon"
               className="mt-1 w-full rounded border border-line bg-surface px-2.5 py-1.5 text-xs text-ink focus:border-brand focus:outline-none"
             />
           </div>
@@ -166,7 +166,7 @@ export function InstagramAdminTab({
               type="text"
               value={profile.profileUrl}
               onChange={(e) => onUpdateProfile('profileUrl', e.target.value)}
-              placeholder="https://instagram.com/nelumbeauty"
+              placeholder="https://instagram.com/kardamon"
               className="mt-1 w-full rounded border border-line bg-surface px-2.5 py-1.5 text-xs text-ink focus:border-brand focus:outline-none"
             />
           </div>
@@ -280,7 +280,7 @@ export function InstagramAdminTab({
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-xs font-medium text-ink">
-                        {post.caption || 'Nelum Beauty Instagram post'}
+                        {post.caption || 'Kardamon Instagram post'}
                       </p>
                       <p className="truncate text-[10px] text-ink-muted">
                         {isVideo ? 'Reel / Video' : 'Photo Post'} • {post.postUrl}

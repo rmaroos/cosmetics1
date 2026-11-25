@@ -436,7 +436,7 @@ export function AdminStaff() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full h-10 px-3 text-xs rounded-xl border border-neutral-200 focus:border-[#9F2438] focus:outline-none"
-                  placeholder="name@nelum.lk"
+                  placeholder="name@kardamon.lk"
                 />
               </div>
 

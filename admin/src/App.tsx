@@ -26,7 +26,7 @@ export function App() {
     <BrowserRouter>
       <AdminAuthProvider>
         <Routes>
-          {/* ─── 1. STANDALONE ROOT ROUTES (e.g. admin.nelummbeauty.lk) ─── */}
+          {/* ─── 1. STANDALONE ROOT ROUTES (e.g. admin.kardamon.lk) ─── */}
           <Route path="/login" element={<AdminLogin />} />
           <Route element={<AdminLayout />}>
             <Route index element={<AdminDashboard />} />

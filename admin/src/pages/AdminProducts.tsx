@@ -551,7 +551,7 @@ export function AdminProducts() {
                   {editingProduct ? `Edit Product: ${editingProduct.name}` : 'Add New Beauty Product'}
                 </h2>
                 <p className="text-xs text-neutral-500">
-                  Changes save directly to the unified Nelum catalogue database
+                  Changes save directly to the unified Kardamon catalogue database
                 </p>
               </div>
               <button

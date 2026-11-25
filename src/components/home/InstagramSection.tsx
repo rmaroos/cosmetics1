@@ -24,11 +24,11 @@ export function InstagramSection() {
     };
 
     window.addEventListener('storage', handleSync);
-    window.addEventListener('nelum:instagram-updated', handleSync);
+    window.addEventListener('kardamon:instagram-updated', handleSync);
 
     return () => {
       window.removeEventListener('storage', handleSync);
-      window.removeEventListener('nelum:instagram-updated', handleSync);
+      window.removeEventListener('kardamon:instagram-updated', handleSync);
     };
   }, []);
 
@@ -79,7 +79,7 @@ export function InstagramSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 rounded-full"
-                aria-label={`Open Nelum Beauty Instagram profile (${profile.username}) in new tab`}
+                aria-label={`Open Kardamon Instagram profile (${profile.username}) in new tab`}
               >
                 <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full p-[2.5px] bg-gold transition-transform duration-300 group-hover:scale-105 shadow-2xs">
                   <div className="h-full w-full rounded-full bg-white p-[2px]">
@@ -176,14 +176,14 @@ export function InstagramSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group relative block aspect-square w-full overflow-hidden rounded-2xl bg-product transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
-                    aria-label={`View Nelum Beauty ${isVideo ? 'Reel' : 'post'} on Instagram: ${
+                    aria-label={`View Kardamon ${isVideo ? 'Reel' : 'post'} on Instagram: ${
                       post.caption || post.altText
                     }`}
                   >
                     {/* High-Resolution Source Image with object-cover preserving aspect ratio */}
                     <img
                       src={post.imageUrl}
-                      alt={post.altText || 'Nelum Beauty Instagram post'}
+                      alt={post.altText || 'Kardamon Instagram post'}
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                     />

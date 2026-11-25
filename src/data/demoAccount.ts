@@ -2,7 +2,7 @@ import type { Address, Order } from '../types/commerce';
 import { img } from './images';
 
 /** Demo credentials for exploring the account area. */
-export const demoCredentials = { email: 'demo@nelumbeauty.lk', password: 'Demo1234' };
+export const demoCredentials = { email: 'demo@kardamon.lk', password: 'Demo1234' };
 
 export const demoCustomer = {
   id: 'cust_demo',

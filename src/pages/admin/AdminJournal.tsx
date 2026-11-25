@@ -19,7 +19,7 @@ export function AdminJournal() {
   const [kind, setKind] = useState<ArticleKind>('journal');
   const [topic, setTopic] = useState('Sun care');
   const [excerpt, setExcerpt] = useState('');
-  const [author, setAuthor] = useState('Nelum Beauty Team');
+  const [author, setAuthor] = useState('Kardamon Team');
   const [image, setImage] = useState(img.journalSunscreen);
   const [readMinutes, setReadMinutes] = useState(5);
   const [published, setPublished] = useState(true);
@@ -35,7 +35,7 @@ export function AdminJournal() {
     setKind('journal');
     setTopic('Sun care');
     setExcerpt('');
-    setAuthor('Nelum Beauty Team');
+    setAuthor('Kardamon Team');
     setImage(img.journalSunscreen);
     setReadMinutes(5);
     setPublished(true);

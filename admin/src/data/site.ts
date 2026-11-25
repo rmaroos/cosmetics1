@@ -3,9 +3,9 @@ import { img } from './images';
 
 /** Provisional identity — store name and wordmark are not yet approved. */
 export const siteConfig = {
-  name: 'Nelum Beauty',
+  name: 'Kardamon',
   tagline: 'Skincare, makeup and beauty essentials, delivered across Sri Lanka.',
-  email: 'hello@nelumbeauty.lk',
+  email: 'hello@kardamon.lk',
   phone: '+94 11 234 5678',
   whatsapp: '+94 77 123 4567',
   hours: 'Mon–Sat, 9.00am – 6.00pm',
@@ -61,7 +61,7 @@ export const paymentMethods: PaymentMethod[] = [
 
 export const bankDetails = {
   bank: 'Commercial Bank of Ceylon',
-  accountName: 'Nelum Beauty (Pvt) Ltd',
+  accountName: 'Kardamon (Pvt) Ltd',
   accountNumber: '1000 4567 8901',
   branch: 'Colombo 07'
 };

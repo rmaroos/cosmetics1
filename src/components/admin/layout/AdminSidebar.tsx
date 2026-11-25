@@ -136,7 +136,7 @@ export function AdminSidebar({
             {!collapsed && (
               <div className="flex flex-col">
                 <span className="font-serif text-lg font-bold tracking-tight text-neutral-900 leading-none">
-                  NELUM
+                  KARDAMON
                 </span>
                 <span className="text-[10px] font-semibold tracking-wider text-[#9F2438] uppercase mt-0.5">
                   Admin Panel

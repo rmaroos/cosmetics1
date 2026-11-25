@@ -193,15 +193,15 @@ export function ProductCard({ product, priority }: Props) {
 
         <div className="flex-1" />
 
-        <div className="mt-1.5 flex flex-wrap items-baseline justify-center gap-x-1.5">
+        <div className="mt-2 flex flex-wrap items-baseline justify-center gap-x-2">
+          <span className={`font-sans text-base font-bold tracking-tight tabular-nums ${compareAt != null && compareAt > price ? 'text-sale' : 'text-brand'}`}>
+            {formatPrice(price)}
+          </span>
           {compareAt != null && compareAt > price && (
             <span className="text-xs tabular-nums text-ink-muted line-through">
               {formatPrice(compareAt)}
             </span>
           )}
-          <span className={`type-product text-[13px] tabular-nums ${compareAt != null && compareAt > price ? 'text-sale' : 'text-ink'}`}>
-            {formatPrice(price)}
-          </span>
         </div>
 
         {/* Shade swatches */}
