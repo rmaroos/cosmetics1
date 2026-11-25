@@ -13,7 +13,11 @@ type Checkout = ReturnType<typeof useCheckout>;
 function RadioCard({ checked, onChange, name, title, description, aside }: {checked: boolean;onChange: () => void;name: string;title: string;description?: React.ReactNode;aside?: React.ReactNode;}) {
   return (
     <label className={twMerge('flex cursor-pointer items-start gap-3 rounded-xl border p-4 transition-[border-color,background-color] duration-150', checked ? 'border-ink bg-surface' : 'border-line hover:border-ink-muted')}>
+<<<<<<< HEAD
       <input type="radio" name={name} checked={checked} onChange={onChange} className="mt-1 h-4 w-4 shrink-0 accent-brand" />
+=======
+      <input type="radio" name={name} checked={checked} onChange={onChange} className="mt-1 h-4 w-4 shrink-0 accent-[#242326]" />
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
       <span className="flex-1">
         <span className="block text-[15px] font-medium text-ink">{title}</span>
         {description && <span className="mt-0.5 block text-sm text-ink-2">{description}</span>}

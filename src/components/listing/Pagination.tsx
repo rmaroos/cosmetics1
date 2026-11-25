@@ -38,7 +38,11 @@ export function Pagination({ page, totalPages, onChange }: Props) {
         onClick={() => go(p)}
         aria-current={p === page ? 'page' : undefined}
         aria-label={`Page ${p}`}
+<<<<<<< HEAD
         className={twMerge(btn, p === page ? 'bg-brand text-white' : 'text-ink hover:bg-surface')}>
+=======
+        className={twMerge(btn, p === page ? 'bg-ink text-white' : 'text-ink hover:bg-surface')}>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         
             {p}
           </button>

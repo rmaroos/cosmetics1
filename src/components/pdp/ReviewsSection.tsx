@@ -47,7 +47,11 @@ export function ReviewsSection({ product }: {product: Product;}) {
     <section id="reviews" aria-labelledby="reviews-heading" className="scroll-mt-24">
       <div className="grid gap-10 lg:grid-cols-[320px_1fr] lg:gap-16">
         <div>
+<<<<<<< HEAD
           <h2 id="reviews-heading" className="type-section text-ink">Reviews</h2>
+=======
+          <h2 id="reviews-heading" className="font-display text-3xl text-ink md:text-4xl">Reviews</h2>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           {summary.count > 0 ?
           <>
               <div className="mt-4 flex items-end gap-3">
@@ -65,7 +69,11 @@ export function ReviewsSection({ product }: {product: Product;}) {
                   <li key={star} className="flex items-center gap-3 text-sm">
                         <span className="w-10 text-ink-2">{star} star</span>
                         <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-line" aria-hidden="true">
+<<<<<<< HEAD
                           <span className="block h-full rounded-full bg-brand" style={{ width: `${n / summary.count * 100}%` }} />
+=======
+                          <span className="block h-full rounded-full bg-ink" style={{ width: `${n / summary.count * 100}%` }} />
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                         </span>
                         <span className="w-6 text-right tabular-nums text-ink-muted">{n}</span>
                       </li>);
@@ -86,7 +94,11 @@ export function ReviewsSection({ product }: {product: Product;}) {
               <p className="text-sm text-ink-2">{published.length} {published.length === 1 ? 'review' : 'reviews'}</p>
               <label className="flex items-center gap-2 text-sm text-ink-2">
                 Sort
+<<<<<<< HEAD
                 <select value={sort} onChange={(e) => {setSort(e.target.value as Sort);setVisible(PAGE);}} className="h-9 rounded-lg border border-line bg-white px-2 text-base text-ink focus:outline-none md:text-sm focus:border-brand">
+=======
+                <select value={sort} onChange={(e) => {setSort(e.target.value as Sort);setVisible(PAGE);}} className="h-9 rounded-lg border border-line bg-white px-2 text-sm text-ink focus:outline-none focus:border-brand">
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                   <option value="newest">Newest</option>
                   <option value="highest">Highest rating</option>
                   <option value="lowest">Lowest rating</option>

@@ -31,7 +31,11 @@ export function MyReviews() {
     <div className="space-y-10">
       {toReview.length > 0 &&
       <section aria-labelledby="to-review-h">
+<<<<<<< HEAD
           <h2 id="to-review-h" className="type-category text-ink">Ready to review</h2>
+=======
+          <h2 id="to-review-h" className="text-xl font-semibold text-ink">Ready to review</h2>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           <p className="mt-1 text-sm text-ink-2">Products from your delivered orders.</p>
           <ul className="mt-4 divide-y divide-line border-y border-line">
             {toReview.map((p) =>
@@ -46,7 +50,11 @@ export function MyReviews() {
       }
 
       <section aria-labelledby="my-reviews-h">
+<<<<<<< HEAD
         <h1 id="my-reviews-h" className="type-category text-ink">My reviews</h1>
+=======
+        <h1 id="my-reviews-h" className="text-xl font-semibold text-ink">My reviews</h1>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         {mine.length === 0 ?
         <EmptyState icon={<MessageSquareIcon className="h-6 w-6" />} title="No reviews yet" description="Share your experience on any product page to help other customers." action={<Button to="/shop">Browse products</Button>} /> :
 

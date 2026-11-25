@@ -66,7 +66,11 @@ export function Cart() {
   return (
     <Container className="pb-20">
       <Breadcrumbs items={[{ label: 'Bag' }]} />
+<<<<<<< HEAD
       <h1 className="type-page text-ink">Your bag</h1>
+=======
+      <h1 className="font-display text-4xl text-ink md:text-5xl">Your bag</h1>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
 
       <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_380px] lg:gap-14">
         <div>
@@ -87,7 +91,11 @@ export function Cart() {
                 <div className="flex min-w-0 flex-1 flex-col">
                   <div className="flex items-start justify-between gap-4">
                     <div className="min-w-0">
+<<<<<<< HEAD
                       {l.brand && <Link to={`/brand/${l.brand.slug}`} className="type-label text-ink-2 hover:text-brand">{l.brand.name}</Link>}
+=======
+                      {l.brand && <Link to={`/brand/${l.brand.slug}`} className="text-xs uppercase tracking-wide text-ink-2 hover:text-brand">{l.brand.name}</Link>}
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                       <h2 className="text-[15px] leading-snug text-ink sm:text-base">
                         <Link to={`/product/${l.product.slug}`} className="hover:underline underline-offset-2">{l.product.name}</Link>
                       </h2>
@@ -135,7 +143,11 @@ export function Cart() {
               <>
                   <label htmlFor="promo" className="mb-1.5 block text-sm font-medium text-ink">Promo code</label>
                   <div className="flex gap-2">
+<<<<<<< HEAD
                     <input id="promo" value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} maxLength={20} autoComplete="off" className="h-11 min-w-0 flex-1 rounded-lg border border-line bg-white px-3 text-base uppercase focus:border-brand md:text-sm focus:outline-none focus:ring-2 focus:ring-brand/25" aria-describedby="promo-msg" />
+=======
+                    <input id="promo" value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} maxLength={20} autoComplete="off" className="h-11 min-w-0 flex-1 rounded-lg border border-line bg-white px-3 text-sm uppercase focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/25" aria-describedby="promo-msg" />
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                     <Button type="submit" variant="secondary" disabled={!code.trim()}>Apply</Button>
                   </div>
                 </>

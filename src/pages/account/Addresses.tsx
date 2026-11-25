@@ -62,7 +62,11 @@ export function Addresses() {
   return (
     <div>
       <div className="flex items-center justify-between gap-4">
+<<<<<<< HEAD
         <h1 className="type-category text-ink">Saved addresses</h1>
+=======
+        <h1 className="text-xl font-semibold text-ink">Saved addresses</h1>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         {customer.addresses.length > 0 &&
         <Button size="sm" onClick={openNew}><PlusIcon className="h-4 w-4" aria-hidden="true" /> Add address</Button>
         }

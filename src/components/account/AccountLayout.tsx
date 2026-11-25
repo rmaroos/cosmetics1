@@ -41,7 +41,11 @@ export function AccountLayout() {
   return (
     <Container className="py-8 md:py-12">
       <p className="text-sm text-ink-2">My account</p>
+<<<<<<< HEAD
       <p className="type-section text-ink">Hello, {customer.firstName}</p>
+=======
+      <p className="font-display text-3xl text-ink md:text-4xl">Hello, {customer.firstName}</p>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
       <div className="mt-8 grid gap-8 lg:grid-cols-[220px_1fr] lg:gap-12">
         <nav aria-label="Account">
           <ul className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 lg:mx-0 lg:flex-col lg:gap-0.5 lg:px-0">
@@ -53,7 +57,11 @@ export function AccountLayout() {
                 className={({ isActive }) =>
                 twMerge(
                   'flex h-10 items-center gap-3 rounded-full border px-4 text-sm font-medium lg:h-11 lg:rounded-lg lg:border-0',
+<<<<<<< HEAD
                   isActive ? 'border-brand bg-brand text-white lg:bg-brand-pale lg:text-ink' : 'border-line text-ink-2 hover:text-ink lg:hover:bg-surface'
+=======
+                  isActive ? 'border-ink bg-ink text-white lg:bg-brand-pale lg:text-ink' : 'border-line text-ink-2 hover:text-ink lg:hover:bg-surface'
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                 )
                 }>
                 

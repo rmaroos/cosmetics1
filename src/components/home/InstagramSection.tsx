@@ -40,10 +40,17 @@ export function InstagramSection() {
   // Background styling
   const bgClass =
     settings.background === 'ivory'
+<<<<<<< HEAD
       ? 'bg-ivory'
       : settings.background === 'blush'
       ? 'bg-sand'
       : 'bg-surface';
+=======
+      ? 'bg-[#FAF8F5]'
+      : settings.background === 'blush'
+      ? 'bg-[#FAF1F0]'
+      : 'bg-white';
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
 
   // Responsive column classes: strictly 5 cols on desktop, 3 on tablet, 2 on mobile
   const getGridColsClass = () => {
@@ -81,7 +88,11 @@ export function InstagramSection() {
                 className="group relative block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 rounded-full"
                 aria-label={`Open Nelum Beauty Instagram profile (${profile.username}) in new tab`}
               >
+<<<<<<< HEAD
                 <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full p-[2.5px] bg-gold transition-transform duration-300 group-hover:scale-105 shadow-2xs">
+=======
+                <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full p-[2.5px] bg-gradient-to-tr from-[#E0A899] via-brand to-[#8E5258] transition-transform duration-300 group-hover:scale-105 shadow-2xs">
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                   <div className="h-full w-full rounded-full bg-white p-[2px]">
                     <img
                       src={profile.profileImage}
@@ -103,10 +114,20 @@ export function InstagramSection() {
             </div>
 
             {/* Section Heading & Tagline */}
+<<<<<<< HEAD
 
             <h2
               id="instagram-section-heading"
               className="heading-xl"
+=======
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">
+              {profile.sectionHeading || 'Stay Connected'}
+            </p>
+
+            <h2
+              id="instagram-section-heading"
+              className="mt-2 font-display text-3xl font-normal tracking-tight text-ink sm:text-4xl md:text-[42px] leading-[1.15]"
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
             >
               {profile.supportingHeading || 'Follow Us on Instagram'}
             </h2>
@@ -147,7 +168,11 @@ export function InstagramSection() {
                 href={profile.profileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+<<<<<<< HEAD
                 className="inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-full border border-brand px-8 type-button text-brand transition-colors duration-200 hover:bg-brand-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+=======
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-brand px-6 text-sm font-medium tracking-wide text-white shadow-2xs transition-all duration-200 hover:bg-brand-hover hover:shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
               >
                 <Instagram className="h-4 w-4" aria-hidden="true" />
                 <span>{profile.ctaText || 'Follow Us on Instagram'}</span>
@@ -175,7 +200,11 @@ export function InstagramSection() {
                     href={targetUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+<<<<<<< HEAD
                     className="group relative block aspect-square w-full overflow-hidden rounded-2xl bg-product transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+=======
+                    className="group relative block aspect-square w-full overflow-hidden rounded-xl bg-product transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 shadow-2xs hover:shadow-md"
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                     aria-label={`View Nelum Beauty ${isVideo ? 'Reel' : 'post'} on Instagram: ${
                       post.caption || post.altText
                     }`}

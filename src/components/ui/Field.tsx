@@ -16,7 +16,11 @@ type FieldShellProps = {
 export function FieldShell({ label, id, required, optional, hint, error, children, className }: FieldShellProps) {
   return (
     <div className={className}>
+<<<<<<< HEAD
       <label htmlFor={id} className="mb-2 block text-sm font-medium text-ink">
+=======
+      <label htmlFor={id} className="mb-1.5 block text-sm font-medium text-ink">
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         {label}
         {required && <span className="text-error" aria-hidden="true"> *</span>}
         {optional && <span className="font-normal text-ink-muted"> (optional)</span>}
@@ -38,7 +42,11 @@ export function FieldShell({ label, id, required, optional, hint, error, childre
 }
 
 export const inputClass =
+<<<<<<< HEAD
 'block w-full rounded-lg border bg-white px-3.5 h-11 text-base text-ink md:text-sm placeholder:text-ink-muted transition-[border-color,box-shadow] duration-150 focus:outline-none focus:ring-2 focus:ring-brand/25 focus:border-brand disabled:bg-disabled disabled:text-disabled-text';
+=======
+'block w-full rounded-lg border bg-white px-3.5 h-11 text-[15px] text-ink placeholder:text-ink-muted transition-[border-color,box-shadow] duration-150 focus:outline-none focus:ring-2 focus:ring-brand/25 focus:border-brand disabled:bg-surface';
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
 
 type TextFieldProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'id'> & {
   label: string;
@@ -62,7 +70,11 @@ export function TextField({ label, hint, error, optional, required, containerCla
           required={required}
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
+<<<<<<< HEAD
           className={twMerge(inputClass, error ? 'border-error' : 'border-line-input', isPassword && 'pr-12', className)}
+=======
+          className={twMerge(inputClass, error ? 'border-error' : 'border-line', isPassword && 'pr-12', className)}
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           {...rest} />
         
         {isPassword &&
@@ -97,7 +109,11 @@ export function TextArea({ label, hint, error, optional, required, containerClas
         required={required}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? `${id}-error` : hint ? `${id}-hint` : undefined}
+<<<<<<< HEAD
         className={twMerge(inputClass, 'h-auto min-h-[120px] py-3 leading-relaxed', error ? 'border-error' : 'border-line-input', className)}
+=======
+        className={twMerge(inputClass, 'h-auto min-h-[120px] py-3 leading-relaxed', error ? 'border-error' : 'border-line', className)}
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         {...rest} />
       
     </FieldShell>);
@@ -123,7 +139,11 @@ export function SelectField({ label, hint, error, optional, required, options, p
         required={required}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? `${id}-error` : hint ? `${id}-hint` : undefined}
+<<<<<<< HEAD
         className={twMerge(inputClass, 'appearance-none bg-[length:16px] bg-[right_12px_center] bg-no-repeat pr-10', error ? 'border-error' : 'border-line-input', className)}
+=======
+        className={twMerge(inputClass, 'appearance-none bg-[length:16px] bg-[right_12px_center] bg-no-repeat pr-10', error ? 'border-error' : 'border-line', className)}
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         style={{
           backgroundImage:
           "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2368666A' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")"
@@ -155,7 +175,11 @@ export function Checkbox({ label, description, error, className, ...rest }: Chec
         <input
           id={id}
           type="checkbox"
+<<<<<<< HEAD
           className="mt-0.5 h-[18px] w-[18px] shrink-0 cursor-pointer rounded border-line-input accent-brand"
+=======
+          className="mt-0.5 h-[18px] w-[18px] shrink-0 cursor-pointer rounded border-line accent-[#A2626A]"
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           aria-invalid={error ? true : undefined}
           {...rest} />
         

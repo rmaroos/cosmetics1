@@ -20,7 +20,11 @@ export function About() {
         <Breadcrumbs items={[{ label: 'Our story' }]} />
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
+<<<<<<< HEAD
             <h1 className="type-page text-ink">Beauty, thoughtfully chosen for Sri Lanka</h1>
+=======
+            <h1 className="font-display text-4xl leading-tight text-ink md:text-6xl">Beauty, thoughtfully chosen for Sri Lanka</h1>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
             <p className="mt-5 text-lg text-ink-2">
               {siteConfig.name} started in Colombo with a simple idea: make it easier to find skincare and beauty products that genuinely suit our climate, our skin and our routines.
             </p>
@@ -32,7 +36,11 @@ export function About() {
         </div>
       </Container>
       <Container className="mt-20">
+<<<<<<< HEAD
         <h2 className="type-section text-ink">What we stand for</h2>
+=======
+        <h2 className="font-display text-3xl text-ink md:text-4xl">What we stand for</h2>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         <ol className="mt-8 grid gap-10 md:grid-cols-3">
           {principles.map((p) =>
           <li key={p.title} className="border-t border-ink pt-5">
@@ -45,7 +53,11 @@ export function About() {
       <Container className="mt-20">
         <div className="flex flex-col items-start justify-between gap-6 rounded-2xl bg-brand-soft p-8 md:flex-row md:items-center md:p-10">
           <div>
+<<<<<<< HEAD
             <h2 className="type-category text-ink">Visit or get in touch</h2>
+=======
+            <h2 className="font-display text-3xl text-ink">Visit or get in touch</h2>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
             <p className="mt-2 text-ink-2">{siteConfig.address} · {siteConfig.hours}</p>
           </div>
           <div className="flex flex-wrap gap-3">

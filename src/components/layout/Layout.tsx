@@ -1,5 +1,9 @@
 import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+<<<<<<< HEAD
+=======
+import { AnnouncementBar } from './AnnouncementBar';
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { CartDrawer } from './CartDrawer';
@@ -26,10 +30,18 @@ export function Layout() {
   }, [pathname, hash]);
 
   return (
+<<<<<<< HEAD
     <div className="flex min-h-screen w-full flex-col">{/* transparent: shows the body's botanical background */}
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-white">
         Skip to content
       </a>
+=======
+    <div className="flex min-h-screen w-full flex-col bg-white">
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-ink focus:px-4 focus:py-2 focus:text-white">
+        Skip to content
+      </a>
+      <AnnouncementBar />
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
       <Header />
       <main id="main" className="flex-1">
         <Outlet />

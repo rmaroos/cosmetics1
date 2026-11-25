@@ -1,8 +1,12 @@
 /* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+<<<<<<< HEAD
 /* TEMPORARY FALLBACK FONTS — these are NOT Canela or Suisse Int'l.
    They only render until the licensed WOFF2 files are added to /public/fonts/.
    Remove this @import once both licensed families are in place. */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500&display=swap');
+=======
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap');
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
 
 /* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
 @import 'tailwindcss/base';
@@ -11,6 +15,7 @@
 
 /* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
 
+<<<<<<< HEAD
 /* ═══════════════════════════════════════════════════════════════════
    LICENSED WEBFONTS (self-hosted WOFF2, font-display: swap)
    ═══════════════════════════════════════════════════════════════════ */
@@ -73,6 +78,8 @@
 /* ═══════════════════════════════════════════════════════════════════
    BASE
    ═══════════════════════════════════════════════════════════════════ */
+=======
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
 :root {
   color-scheme: light;
 }
@@ -81,6 +88,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
+<<<<<<< HEAD
   @apply bg-ivory font-sans text-ui-body font-normal text-ink antialiased;
   font-feature-settings: 'kern', 'liga';
   text-rendering: optimizeLegibility;
@@ -183,6 +191,15 @@ input[type='radio'] {
   }
 }
 
+=======
+  @apply bg-white text-ink font-sans antialiased;
+  line-height: 1.55;
+}
+:focus-visible {
+  outline: 2px solid #8e5258;
+  outline-offset: 2px;
+}
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -190,6 +207,7 @@ input[type='radio'] {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+<<<<<<< HEAD
 
 /* Long-form editorial content (articles, info pages) */
 .prose-content h2 {
@@ -203,6 +221,19 @@ input[type='radio'] {
 }
 .prose-content ul {
   @apply mb-5 list-disc space-y-1.5 pl-5 text-base leading-[1.75] text-ink-2;
+=======
+.prose-content h2 {
+  @apply font-display text-2xl md:text-3xl text-ink mt-10 mb-3 leading-tight;
+}
+.prose-content h3 {
+  @apply text-lg font-semibold text-ink mt-6 mb-2;
+}
+.prose-content p {
+  @apply text-ink-2 mb-4 leading-relaxed;
+}
+.prose-content ul {
+  @apply list-disc pl-5 mb-4 text-ink-2 space-y-1.5;
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
 }
 
 /* Continuous Marquee Animation */

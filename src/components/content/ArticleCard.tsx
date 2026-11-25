@@ -14,13 +14,22 @@ export function ArticleCard({ article, large }: {article: Article;large?: boolea
           className={`w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03] ${large ? 'aspect-[4/3] lg:aspect-[16/11]' : 'aspect-[3/2]'}`} />
         
       </Link>
+<<<<<<< HEAD
       <p className="mt-5 type-label text-brand">{article.topic}</p>
       <h3 className={`mt-3 text-ink ${large ? 'type-section' : 'type-category'}`}>
+=======
+      <p className="mt-4 text-xs font-medium text-brand">{article.topic}</p>
+      <h3 className={`mt-1.5 font-display leading-tight text-ink ${large ? 'text-3xl md:text-4xl' : 'text-2xl'}`}>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         <Link to={`/journal/${article.slug}`} className="hover:underline underline-offset-4 decoration-1">
           {article.title}
         </Link>
       </h3>
+<<<<<<< HEAD
       <p className="mt-3 line-clamp-2 text-base leading-relaxed text-ink-2">{article.excerpt}</p>
+=======
+      <p className="mt-2 line-clamp-2 text-[15px] text-ink-2">{article.excerpt}</p>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
       <p className="mt-auto pt-3 text-xs text-ink-muted">
         {formatDate(article.publishedAt)} · {article.readMinutes} min read
       </p>

@@ -32,7 +32,11 @@ export function Dashboard() {
     <div className="space-y-10">
       <section aria-labelledby="latest-h">
         <div className="mb-4 flex items-center justify-between">
+<<<<<<< HEAD
           <h1 id="latest-h" className="type-category text-ink">Latest order</h1>
+=======
+          <h1 id="latest-h" className="text-xl font-semibold text-ink">Latest order</h1>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           {orders.length > 1 &&
           <Link to="/account/orders" className="inline-flex items-center gap-1 text-sm font-medium text-ink hover:text-brand">
               All orders ({orders.length}) <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />

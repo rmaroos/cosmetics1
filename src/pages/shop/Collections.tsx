@@ -19,7 +19,11 @@ export function Collections() {
               <div className="aspect-[4/3] overflow-hidden rounded-xl bg-product">
                 {c.image && <img src={c.image} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]" />}
               </div>
+<<<<<<< HEAD
               <h2 className="mt-4 type-category text-ink group-hover:text-brand">{c.name}</h2>
+=======
+              <h2 className="mt-4 font-display text-2xl text-ink group-hover:text-brand">{c.name}</h2>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
               <p className="mt-1 text-sm text-ink-2">{c.description}</p>
               <p className="mt-1 text-xs text-ink-muted">{pluralize(productsInCollection(c).length, 'product')}</p>
             </Link>

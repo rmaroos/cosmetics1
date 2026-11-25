@@ -47,7 +47,11 @@ export function CartDrawer() {
           <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-pale text-brand">
             <ShoppingBagIcon className="h-6 w-6" aria-hidden="true" />
           </div>
+<<<<<<< HEAD
           <p className="type-category text-ink">Your bag is empty</p>
+=======
+          <p className="font-display text-2xl text-ink">Your bag is empty</p>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           <p className="mt-1.5 text-sm text-ink-2">Discover something new for your routine.</p>
           <Button to="/shop" onClick={closeDrawer} className="mt-6">
             Start shopping
@@ -83,7 +87,11 @@ export function CartDrawer() {
                   <img src={l.product.images[0]} alt={l.product.name} className="h-24 w-24 rounded-lg bg-product object-cover" />
                 </Link>
                 <div className="flex min-w-0 flex-1 flex-col">
+<<<<<<< HEAD
                   <p className="type-label text-ink-2">{l.brand?.name}</p>
+=======
+                  <p className="text-xs uppercase tracking-wide text-ink-2">{l.brand?.name}</p>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                   <Link to={`/product/${l.product.slug}`} onClick={closeDrawer} className="text-sm leading-snug text-ink hover:underline underline-offset-2">
                     {l.product.name}
                   </Link>

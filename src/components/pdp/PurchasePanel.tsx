@@ -67,11 +67,19 @@ export function PurchasePanel({ product, brand, onStickyChange, registerAdd }: P
   return (
     <div>
       {brand &&
+<<<<<<< HEAD
       <Link to={`/brand/${brand.slug}`} className="type-label text-ink-2 hover:text-brand">
           {brand.name}
         </Link>
       }
       <h1 className="mt-3 type-section text-ink">{product.name}</h1>
+=======
+      <Link to={`/brand/${brand.slug}`} className="text-sm font-medium uppercase tracking-wide text-ink-2 hover:text-brand">
+          {brand.name}
+        </Link>
+      }
+      <h1 className="mt-2 font-display text-[34px] leading-[1.1] text-ink md:text-[42px]">{product.name}</h1>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
       <p className="mt-4 text-[15px] leading-relaxed text-ink-2">{product.shortDescription}</p>
 
       <Price price={priceSource.price} compareAt={priceSource.compareAtPrice} size="lg" className="mt-5" />
@@ -118,7 +126,11 @@ export function PurchasePanel({ product, brand, onStickyChange, registerAdd }: P
               }}
               className={twMerge(
                 'h-11 rounded-lg border px-4 text-sm font-medium transition-[border-color,background-color] duration-150',
+<<<<<<< HEAD
                 selected ? 'border-brand bg-brand text-white' : 'border-line text-ink hover:border-ink',
+=======
+                selected ? 'border-ink bg-ink text-white' : 'border-line text-ink hover:border-ink',
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                 out && 'cursor-not-allowed text-ink-muted line-through hover:border-line'
               )}>
               

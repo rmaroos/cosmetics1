@@ -33,10 +33,17 @@ export function OrderSummary({ lines, subtotal, discount, promoCode, deliveryFee
         <li key={l.key} className="flex gap-3 py-3">
               <div className="relative shrink-0">
                 <img src={l.image} alt="" className="h-16 w-16 rounded-lg bg-product object-cover" />
+<<<<<<< HEAD
                 <span className="absolute -right-1.5 -top-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-brand px-1 text-[11px] font-semibold text-white">{l.quantity}</span>
               </div>
               <div className="min-w-0 flex-1">
                 {l.brandName && <p className="type-label text-ink-2">{l.brandName}</p>}
+=======
+                <span className="absolute -right-1.5 -top-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-ink px-1 text-[11px] font-semibold text-white">{l.quantity}</span>
+              </div>
+              <div className="min-w-0 flex-1">
+                {l.brandName && <p className="text-[11px] uppercase tracking-wide text-ink-2">{l.brandName}</p>}
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                 <p className="text-sm leading-snug text-ink">{l.name}</p>
                 <p className="text-xs text-ink-muted">{l.variantLabel}</p>
                 {l.unavailable && <p className="text-xs font-medium text-error">Out of stock — not included</p>}

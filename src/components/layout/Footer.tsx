@@ -44,6 +44,7 @@ function groups(): Group[] {
 }
 
 export function Footer() {
+<<<<<<< HEAD
   const linkClass = 'text-sm text-sand transition-colors duration-200 hover:text-ivory';
   return (
     <footer className="mt-auto bg-brand bg-botanical text-ivory">
@@ -63,12 +64,38 @@ export function Footer() {
               <li className="flex items-center gap-2.5">
                 <MessageCircleIcon className="h-4 w-4 text-gold" aria-hidden="true" />
                 <a href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-ivory">
+=======
+  const linkClass = 'text-sm text-ink-2 hover:text-ink hover:underline underline-offset-2';
+  return (
+    <footer className="mt-auto border-t border-line bg-surface">
+      <Container className="py-12 md:py-16">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_2fr]">
+          <div className="max-w-sm">
+            <p className="font-display text-3xl text-ink">Join our list</p>
+            <p className="mt-2 text-sm text-ink-2">New arrivals, routine tips and members-first offers. No spam.</p>
+            <div className="mt-5">
+              <NewsletterForm />
+            </div>
+            <ul className="mt-8 space-y-2.5 text-sm text-ink-2">
+              <li className="flex items-center gap-2.5">
+                <PhoneIcon className="h-4 w-4" aria-hidden="true" />
+                <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`} className="hover:text-ink">{siteConfig.phone}</a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <MessageCircleIcon className="h-4 w-4" aria-hidden="true" />
+                <a href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="hover:text-ink">
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                   WhatsApp {siteConfig.whatsapp}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
+<<<<<<< HEAD
                 <MailIcon className="h-4 w-4 text-gold" aria-hidden="true" />
                 <a href={`mailto:${siteConfig.email}`} className="transition-colors hover:text-ivory">{siteConfig.email}</a>
+=======
+                <MailIcon className="h-4 w-4" aria-hidden="true" />
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-ink">{siteConfig.email}</a>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
               </li>
             </ul>
           </div>
@@ -76,8 +103,13 @@ export function Footer() {
           <div className="hidden grid-cols-3 gap-8 md:grid">
             {groups().map((g) =>
             <nav key={g.heading} aria-label={g.heading}>
+<<<<<<< HEAD
                 <h2 className="type-label text-ivory">{g.heading}</h2>
                 <ul className="mt-5 space-y-3">
+=======
+                <h2 className="text-sm font-semibold text-ink">{g.heading}</h2>
+                <ul className="mt-4 space-y-2.5">
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                   {g.links.map((l) =>
                 <li key={l.to}>
                       <Link to={l.to} className={linkClass}>{l.label}</Link>
@@ -89,7 +121,11 @@ export function Footer() {
           </div>
           <div className="md:hidden">
             {groups().map((g) =>
+<<<<<<< HEAD
             <Accordion key={g.heading} title={g.heading} headingLevel="h2" tone="dark">
+=======
+            <Accordion key={g.heading} title={g.heading} headingLevel="h2">
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                 <ul className="space-y-2.5">
                   {g.links.map((l) =>
                 <li key={l.to}>
@@ -102,13 +138,21 @@ export function Footer() {
           </div>
         </div>
 
+<<<<<<< HEAD
         <div className="mt-14 flex flex-col gap-4 border-t border-ivory/15 pt-7 text-sm text-sand md:flex-row md:items-center md:justify-between">
+=======
+        <div className="mt-12 flex flex-col gap-4 border-t border-line pt-6 text-xs text-ink-2 md:flex-row md:items-center md:justify-between">
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           <p>© {new Date().getFullYear()} {siteConfig.name}. {siteConfig.address}</p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <span>We accept: Cash on delivery · Bank transfer</span>
             <Link
               to="/admin"
+<<<<<<< HEAD
               className="inline-flex items-center gap-1 font-medium text-ivory underline decoration-ivory/40 underline-offset-4 hover:decoration-ivory"
+=======
+              className="inline-flex items-center gap-1 font-semibold text-[#9F2438] hover:underline"
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
             >
               <span>Admin Portal</span>
               <span aria-hidden="true">↗</span>
@@ -116,7 +160,11 @@ export function Footer() {
             <ul className="flex gap-4">
               {siteConfig.social.map((s) =>
               <li key={s.label}>
+<<<<<<< HEAD
                   <a href={s.href} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-ivory">{s.label}</a>
+=======
+                  <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:text-ink">{s.label}</a>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                 </li>
               )}
             </ul>

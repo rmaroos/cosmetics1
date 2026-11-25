@@ -70,7 +70,11 @@ export function WishlistGrid() {
                   <XIcon className="h-4 w-4" />
                 </button>
               </div>
+<<<<<<< HEAD
               <p className="mt-3 type-label text-ink-2">{getBrandById(p.brandId)?.name}</p>
+=======
+              <p className="mt-3 text-xs uppercase tracking-wide text-ink-2">{getBrandById(p.brandId)?.name}</p>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
               <Link to={`/product/${p.slug}`} className="mt-1 line-clamp-2 text-[15px] leading-snug text-ink hover:underline underline-offset-2">
                 {p.name}
               </Link>

@@ -17,6 +17,10 @@ export function Brand() {
     <Container className="pb-16">
       <ListingHeader
         crumbs={[{ label: 'Brands', to: '/brands' }, { label: brand.name }]}
+<<<<<<< HEAD
+=======
+        eyebrow={`Made in ${brand.origin}`}
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         title={brand.name}
         description={brand.description}
         aside={

@@ -148,7 +148,11 @@ export function App() {
                     <Toaster
                       position="bottom-center"
                       toastOptions={{
+<<<<<<< HEAD
                         style: { fontFamily: '"Suisse Intl", Inter, system-ui, sans-serif', borderRadius: '10px' },
+=======
+                        style: { fontFamily: 'Inter, system-ui, sans-serif', borderRadius: '10px' },
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                       }}
                     />
                   </NavigationProvider>

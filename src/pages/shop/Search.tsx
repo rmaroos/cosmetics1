@@ -35,7 +35,11 @@ export function Search() {
     <Container className="pb-16">
       <Breadcrumbs items={[{ label: 'Search' }]} />
       <form role="search" onSubmit={submit} className="max-w-2xl">
+<<<<<<< HEAD
         <label htmlFor="search-page-input" className="mb-2 block type-page text-ink">
+=======
+        <label htmlFor="search-page-input" className="mb-2 block font-display text-4xl text-ink md:text-5xl">
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           {q ? <>Results for “{q}”</> : 'Search'}
         </label>
         <div className="mt-4 flex gap-2">
@@ -48,7 +52,11 @@ export function Search() {
               maxLength={100}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Search products, brands or ingredients"
+<<<<<<< HEAD
               className="h-12 w-full rounded-lg border border-line pl-10 pr-3 text-base focus:border-brand md:text-sm focus:outline-none focus:ring-2 focus:ring-brand/25" />
+=======
+              className="h-12 w-full rounded-lg border border-line pl-10 pr-3 text-[15px] focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/25" />
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
             
           </div>
           <Button type="submit" size="lg">Search</Button>

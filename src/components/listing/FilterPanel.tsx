@@ -26,7 +26,11 @@ export function FilterPanel({ facets, filters, onToggle, hidden = [] }: Props) {
               return (
                 <li key={opt.value}>
                     <label className="flex cursor-pointer items-center gap-3 rounded-md py-1.5 text-sm text-ink hover:text-brand">
+<<<<<<< HEAD
                       <input type="checkbox" checked={checked} onChange={() => onToggle(key, opt.value)} className="h-[18px] w-[18px] shrink-0 cursor-pointer accent-brand" />
+=======
+                      <input type="checkbox" checked={checked} onChange={() => onToggle(key, opt.value)} className="h-[18px] w-[18px] shrink-0 cursor-pointer accent-[#A2626A]" />
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                       <span className="flex-1">{opt.label}</span>
                       <span className="text-xs tabular-nums text-ink-muted">{opt.count}</span>
                     </label>

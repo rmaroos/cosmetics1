@@ -23,7 +23,11 @@ export function OrderDetail() {
       <Link to="/account/orders" className="inline-flex items-center gap-1.5 text-sm text-ink-2 hover:text-ink">
         <ArrowLeftIcon className="h-4 w-4" aria-hidden="true" /> All orders
       </Link>
+<<<<<<< HEAD
       <h1 className="mb-6 mt-3 type-category text-ink">Order {order.reference}</h1>
+=======
+      <h1 className="mb-6 mt-3 text-2xl font-semibold text-ink">Order {order.reference}</h1>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
       <OrderDetailView order={order} />
       <p className="mt-10 text-sm text-ink-2">
         Need help with this order? <Link to="/contact" className="font-medium text-ink underline underline-offset-2">Contact us</Link> and quote {order.reference}.

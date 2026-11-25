@@ -41,7 +41,11 @@ export function TrackOrder() {
   return (
     <Container className="max-w-3xl pb-20">
       <Breadcrumbs items={[{ label: 'Track an order' }]} />
+<<<<<<< HEAD
       <h1 className="type-page text-ink">Track your order</h1>
+=======
+      <h1 className="font-display text-4xl text-ink md:text-5xl">Track your order</h1>
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
       <p className="mt-3 text-ink-2">
         Enter the reference from your confirmation email.{' '}
         {customer ? <Link to="/account/orders" className="text-ink underline underline-offset-2">View all your orders</Link> : <>Have an account? <Link to="/login?redirect=/account/orders" className="text-ink underline underline-offset-2">Sign in</Link> to see all orders.</>}

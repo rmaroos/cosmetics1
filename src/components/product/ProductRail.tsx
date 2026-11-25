@@ -29,7 +29,11 @@ export function ProductRail({ title, description, products, viewAllHref, heading
       <Container>
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
+<<<<<<< HEAD
             <h2 id={id} className="type-section text-ink">
+=======
+            <h2 id={id} className="font-display text-3xl leading-tight text-ink md:text-4xl">
+>>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
               {title}
             </h2>
             {description && <p className="mt-1.5 text-ink-2">{description}</p>}
