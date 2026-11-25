@@ -97,11 +97,7 @@ export function ReviewForm({ product, onDone }: Props) {
     return (
       <div className="px-5 py-10 text-center">
         <CheckCircle2Icon className="mx-auto h-10 w-10 text-success" aria-hidden="true" />
-<<<<<<< HEAD
         <p className="mt-4 type-category text-ink">Thank you for your review</p>
-=======
-        <p className="mt-4 font-display text-2xl text-ink">Thank you for your review</p>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         <p className="mx-auto mt-2 max-w-sm text-sm text-ink-2">
           Reviews are checked by our team before they’re published, usually within 2 working days. You can see its status in My Reviews.
         </p>

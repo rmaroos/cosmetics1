@@ -7,11 +7,7 @@ export function AuthShell({ title, description, children }: {title: string;descr
     <Container className="py-10 md:py-16">
       <div className="mx-auto grid max-w-5xl items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
         <div className="mx-auto w-full max-w-md">
-<<<<<<< HEAD
           <h1 className="type-page text-ink">{title}</h1>
-=======
-          <h1 className="font-display text-4xl text-ink md:text-5xl">{title}</h1>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           {description && <p className="mt-3 text-ink-2">{description}</p>}
           <div className="mt-8">{children}</div>
         </div>

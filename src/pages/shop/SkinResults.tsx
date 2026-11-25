@@ -30,10 +30,6 @@ export function SkinResults({ mode }: Props) {
     <Container className="pb-16">
       <ListingHeader
         crumbs={[{ label: 'Discover', to: '/discover' }, { label: mode === 'type' ? 'Skin type' : 'Skin concern', to: `/discover#${mode === 'type' ? 'skin-types' : 'concerns'}` }, { label: attr.name }]}
-<<<<<<< HEAD
-=======
-        eyebrow={mode === 'type' ? 'Shop by skin type' : 'Shop by skin concern'}
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         title={title}
         description={attr.description} />
       

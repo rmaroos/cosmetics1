@@ -21,11 +21,7 @@ export function Orders() {
 
   return (
     <div>
-<<<<<<< HEAD
       <h1 className="type-category text-ink">My orders</h1>
-=======
-      <h1 className="text-xl font-semibold text-ink">My orders</h1>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
       {all.length === 0 ?
       <EmptyState icon={<PackageIcon className="h-6 w-6" />} title="No orders yet" description="When you place an order while signed in, it’ll appear here." action={<Button to="/shop">Start shopping</Button>} /> :
 
@@ -37,11 +33,7 @@ export function Orders() {
             type="button"
             aria-pressed={filter === f}
             onClick={() => setFilter(f)}
-<<<<<<< HEAD
             className={twMerge('h-9 rounded-full border px-4 text-sm font-medium capitalize', filter === f ? 'border-brand bg-brand text-white' : 'border-line text-ink hover:border-ink')}>
-=======
-            className={twMerge('h-9 rounded-full border px-4 text-sm font-medium capitalize', filter === f ? 'border-ink bg-ink text-white' : 'border-line text-ink hover:border-ink')}>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
             
                 {f}
               </button>

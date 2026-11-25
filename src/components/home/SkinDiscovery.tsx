@@ -23,11 +23,7 @@ export function SkinDiscovery() {
         <div className="mx-auto max-w-2xl text-center">
           <h2
             id="skin-discovery-heading"
-<<<<<<< HEAD
             className="type-section text-ink"
-=======
-            className="font-display text-3xl font-normal tracking-tight text-ink sm:text-4xl lg:text-5xl"
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           >
             Find What Your Skin Needs
           </h2>
@@ -40,11 +36,7 @@ export function SkinDiscovery() {
             <div
               role="tablist"
               aria-label="Shop for Your Skin Views"
-<<<<<<< HEAD
               className="inline-flex items-center rounded-full border border-line bg-surface p-1.5 shadow-inner"
-=======
-              className="inline-flex items-center rounded-full border border-line bg-[#F5F5F7] p-1.5 shadow-inner"
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
             >
               <button
                 type="button"
@@ -119,11 +111,7 @@ export function SkinDiscovery() {
                   </div>
                   {/* Skin type name beneath image */}
                   <div className="pt-3 text-center sm:pt-3.5">
-<<<<<<< HEAD
                     <span className="font-display text-xl font-normal text-ink transition-colors duration-200 group-hover:text-brand sm:text-xl">
-=======
-                    <span className="font-display text-lg font-medium text-ink transition-colors duration-200 group-hover:text-brand sm:text-xl">
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                       {type.name}
                     </span>
                   </div>
@@ -158,11 +146,7 @@ export function SkinDiscovery() {
                   </div>
                   {/* Concern name beneath image with a small arrow icon */}
                   <div className="flex items-center justify-between gap-1.5 pt-3 sm:pt-3.5">
-<<<<<<< HEAD
                     <span className="truncate font-display text-lg font-normal text-ink transition-colors duration-200 group-hover:text-brand sm:text-lg lg:text-xl">
-=======
-                    <span className="truncate font-display text-base font-medium text-ink transition-colors duration-200 group-hover:text-brand sm:text-lg lg:text-xl">
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                       {concern.name}
                     </span>
                     <ArrowRightIcon

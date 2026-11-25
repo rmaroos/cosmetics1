@@ -25,11 +25,7 @@ export function OrderConfirmation() {
     <Container className="max-w-3xl py-12 md:py-16">
       <div className="text-center">
         <CheckCircle2Icon className="mx-auto h-12 w-12 text-success" aria-hidden="true" />
-<<<<<<< HEAD
         <h1 className="mt-4 type-page text-ink">Thank you, {order.contact.firstName}</h1>
-=======
-        <h1 className="mt-4 font-display text-4xl text-ink md:text-5xl">Thank you, {order.contact.firstName}</h1>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         <p className="mt-3 text-ink-2">
           Your order <span className="font-semibold text-ink">{order.reference}</span> has been placed. A confirmation has been sent to {order.contact.email}.
         </p>

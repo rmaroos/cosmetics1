@@ -5,7 +5,6 @@ import { skinConcerns, skinTypes } from '../data/skinTaxonomy';
 import { adminStore } from '../services/adminStore';
 
 /* ---------- Live Dynamic Catalogs connected to Admin Store ---------- */
-<<<<<<< HEAD
 
 /**
  * An array that always reflects the latest admin-store data.
@@ -38,29 +37,6 @@ export const catalogBrands: Brand[] = liveList(() =>
 export const catalogCategories: Category[] = liveList(() =>
   adminStore.getCategories().filter((c) => c.published).sort((a, b) => a.order - b.order)
 );
-=======
-export const catalogProducts: Product[] = new Proxy([] as Product[], {
-  get(target, prop, receiver) {
-    const publishedBrandIds = new Set(adminStore.getBrands().filter((b) => b.published).map((b) => b.id));
-    const list = adminStore.getProducts().filter((p) => p.published && publishedBrandIds.has(p.brandId));
-    return Reflect.get(list, prop, receiver);
-  },
-});
-
-export const catalogBrands: Brand[] = new Proxy([] as Brand[], {
-  get(target, prop, receiver) {
-    const list = adminStore.getBrands().filter((b) => b.published).sort((a, b) => a.name.localeCompare(b.name));
-    return Reflect.get(list, prop, receiver);
-  },
-});
-
-export const catalogCategories: Category[] = new Proxy([] as Category[], {
-  get(target, prop, receiver) {
-    const list = adminStore.getCategories().filter((c) => c.published).sort((a, b) => a.order - b.order);
-    return Reflect.get(list, prop, receiver);
-  },
-});
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
 
 export const catalogCollections: Collection[] = collections.filter((c) => c.published);
 export const catalogSkinTypes = skinTypes.filter((s) => s.published);

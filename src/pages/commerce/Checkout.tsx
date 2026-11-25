@@ -24,11 +24,7 @@ export function Checkout() {
         <Link to="/cart" className="inline-flex items-center gap-1.5 text-sm text-ink-2 hover:text-ink">
           <ArrowLeftIcon className="h-4 w-4" aria-hidden="true" /> <span className="hidden sm:inline">Back to bag</span>
         </Link>
-<<<<<<< HEAD
         <Link to="/" className="type-category text-ink" aria-label={`${siteConfig.name} home`}>
-=======
-        <Link to="/" className="font-display text-2xl font-semibold text-ink" aria-label={`${siteConfig.name} home`}>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           {siteConfig.name.split(' ')[0]}<span className="text-brand">.</span>
         </Link>
         <span className="inline-flex items-center gap-1.5 text-xs text-ink-2">

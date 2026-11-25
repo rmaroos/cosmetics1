@@ -19,7 +19,6 @@ type ButtonProps = CommonProps & React.ButtonHTMLAttributes<HTMLButtonElement> &
 type LinkProps = CommonProps & {to: string;onClick?: () => void;'aria-label'?: string;};
 
 const base =
-<<<<<<< HEAD
 'type-button inline-flex cursor-pointer items-center justify-center gap-2 rounded-full whitespace-nowrap select-none transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out active:scale-[0.98] disabled:pointer-events-none disabled:border-transparent disabled:bg-disabled disabled:text-disabled-text disabled:shadow-none';
 
 const variants: Record<Variant, string> = {
@@ -27,28 +26,13 @@ const variants: Record<Variant, string> = {
   dark: 'bg-brand text-white hover:bg-brand-hover active:bg-brand-hover',
   secondary: 'border border-brand bg-transparent text-brand hover:bg-brand-soft active:bg-brand-soft',
   ghost: 'text-brand hover:bg-brand-soft',
-=======
-'inline-flex items-center justify-center gap-2 rounded-lg font-medium whitespace-nowrap select-none transition-[background-color,border-color,color,transform] duration-150 ease-out active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50';
-
-const variants: Record<Variant, string> = {
-  primary: 'bg-brand text-white hover:bg-brand-hover',
-  dark: 'bg-ink text-white hover:bg-black',
-  secondary: 'border border-line bg-white text-ink hover:border-ink',
-  ghost: 'text-ink hover:bg-surface',
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
   destructive: 'border border-error/30 text-error hover:bg-error-soft'
 };
 
 const sizes: Record<Size, string> = {
-<<<<<<< HEAD
   sm: 'h-10 px-5',
   md: 'h-11 px-6',
   lg: 'h-12 px-8'
-=======
-  sm: 'h-9 px-3.5 text-sm',
-  md: 'h-11 px-5 text-sm',
-  lg: 'h-12 px-6 text-[15px]'
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
 };
 
 export function Button(props: ButtonProps | LinkProps) {

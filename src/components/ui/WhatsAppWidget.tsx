@@ -97,11 +97,7 @@ export function WhatsAppWidget({ phoneNumber, message }: WhatsAppWidgetProps) {
                   </span>
                 </div>
 
-<<<<<<< HEAD
                 <h4 className="text-sm font-medium text-ink leading-snug group-hover/card:text-brand transition-colors">
-=======
-                <h4 className="font-display text-[13px] sm:text-[14px] font-semibold text-ink leading-snug group-hover/card:text-brand transition-colors">
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                   Need help finding your perfect beauty match?
                 </h4>
 

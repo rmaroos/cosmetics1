@@ -18,11 +18,7 @@ export function CheckoutStep({ number, title, state, summary, onEdit, children }
         <span
           className={twMerge(
             'flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-semibold',
-<<<<<<< HEAD
             state === 'complete' ? 'bg-success text-white' : state === 'active' ? 'bg-brand text-white' : 'bg-line text-ink-2'
-=======
-            state === 'complete' ? 'bg-success text-white' : state === 'active' ? 'bg-ink text-white' : 'bg-line text-ink-2'
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           )}
           aria-hidden="true">
           

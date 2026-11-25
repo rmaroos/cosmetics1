@@ -29,11 +29,7 @@ export function InfoPage({ slug }: {slug: string;}) {
           </ul>
         </nav>
         <div className="order-1 max-w-2xl lg:order-2">
-<<<<<<< HEAD
           <h1 className="type-page text-ink">{page.title}</h1>
-=======
-          <h1 className="font-display text-4xl text-ink md:text-5xl">{page.title}</h1>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           <p className="mt-2 text-sm text-ink-muted">Last updated {formatDate(page.updatedAt)}</p>
           <div className="prose-content mt-6">
             <p className="text-lg">{page.intro}</p>

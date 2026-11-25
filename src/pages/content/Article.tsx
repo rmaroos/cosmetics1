@@ -26,11 +26,7 @@ export function Article() {
       <Container className="max-w-3xl">
         <Breadcrumbs items={[{ label: 'Journal', to: '/journal' }, { label: article.title }]} />
         <p className="text-sm font-medium text-brand">{article.topic}</p>
-<<<<<<< HEAD
         <h1 className="mt-2 type-page text-ink">{article.title}</h1>
-=======
-        <h1 className="mt-2 font-display text-4xl leading-[1.1] text-ink md:text-[52px]">{article.title}</h1>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         <p className="mt-4 text-lg text-ink-2">{article.excerpt}</p>
         <p className="mt-4 text-sm text-ink-muted">
           {article.author} · {formatDate(article.publishedAt)} · {article.readMinutes} min read
@@ -81,11 +77,7 @@ export function Article() {
 
       {more.length > 0 &&
       <Container className="mt-16 border-t border-line pt-12">
-<<<<<<< HEAD
           <h2 className="type-category text-ink">Keep reading</h2>
-=======
-          <h2 className="font-display text-3xl text-ink">Keep reading</h2>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           <ul className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {more.map((a) => <li key={a.slug}><ArticleCard article={a} /></li>)}
           </ul>

@@ -30,11 +30,7 @@ export function CollectionTabs() {
     <section aria-labelledby="collections-heading" className="py-12 md:py-16">
       <Container>
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-<<<<<<< HEAD
           <h2 id="collections-heading" className="type-section text-ink">
-=======
-          <h2 id="collections-heading" className="font-display text-3xl text-ink md:text-4xl">
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
             Customer favourites
           </h2>
           <div role="tablist" aria-label="Product collections" className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 md:mx-0 md:px-0">
@@ -51,11 +47,7 @@ export function CollectionTabs() {
               onKeyDown={(e) => onKeyDown(e, i)}
               className={twMerge(
                 'h-10 shrink-0 rounded-full border px-4 text-sm font-medium transition-[background-color,border-color,color] duration-150 ease-out',
-<<<<<<< HEAD
                 i === active ? 'border-brand bg-brand text-white' : 'border-line text-ink hover:border-ink'
-=======
-                i === active ? 'border-ink bg-ink text-white' : 'border-line text-ink hover:border-ink'
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
               )}>
               
                 {t.collection.name}

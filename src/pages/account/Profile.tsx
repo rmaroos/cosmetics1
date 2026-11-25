@@ -53,11 +53,7 @@ export function Profile() {
   return (
     <div className="max-w-xl space-y-12">
       <section aria-labelledby="profile-h">
-<<<<<<< HEAD
         <h1 id="profile-h" className="type-category text-ink">Profile details</h1>
-=======
-        <h1 id="profile-h" className="text-xl font-semibold text-ink">Profile details</h1>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         <form onSubmit={save} noValidate className="mt-5 space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <TextField label="First name" required autoComplete="given-name" value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} error={errors.firstName} />
@@ -71,11 +67,7 @@ export function Profile() {
       </section>
 
       <section aria-labelledby="password-h" className="border-t border-line pt-10">
-<<<<<<< HEAD
         <h2 id="password-h" className="type-category text-ink">Change password</h2>
-=======
-        <h2 id="password-h" className="text-xl font-semibold text-ink">Change password</h2>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         <form onSubmit={savePassword} noValidate className="mt-5 space-y-4">
           {pwError && <Alert tone="error">{pwError}</Alert>}
           <TextField label="Current password" type="password" required autoComplete="current-password" value={pw.current} onChange={(e) => setPw({ ...pw, current: e.target.value })} error={pwErrors.current} />

@@ -1,62 +1,39 @@
 import type { SkinAttribute } from '../types/catalog';
-<<<<<<< HEAD
 import { img } from './images';
-=======
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
 
 export const skinTypes: SkinAttribute[] = [
   {
     slug: 'oily',
     name: 'Oily Skin',
-<<<<<<< HEAD
     image: img.clayMask, // oil-control clay mask
-=======
-    image: '/skin/type-oily.jpg',
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
     published: true,
     description: 'Skin that produces excess sebum and looks shiny through the day. Lightweight, oil-free formulas and gentle balancing cleansing help keep it fresh and clear.'
   },
   {
     slug: 'normal',
     name: 'Normal Skin',
-<<<<<<< HEAD
     image: img.serum, // daily antioxidant serum
-=======
-    image: '/skin/type-normal.jpg',
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
     published: true,
     description: 'Generally balanced, neither very oily nor very dry. Focus on environmental protection, antioxidants, and daily hydration maintenance.'
   },
   {
     slug: 'dry',
     name: 'Dry Skin',
-<<<<<<< HEAD
     image: img.creamJar, // rich barrier cream
-=======
-    image: '/skin/type-dry.jpg',
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
     published: true,
     description: 'Skin that often feels tight or rough and can flake. Look for rich, cushioning textures, lipid replenishment, and barrier-supporting ceramides.'
   },
   {
     slug: 'sensitive',
     name: 'Sensitive Skin',
-<<<<<<< HEAD
     image: img.cleanser, // gentle, fragrance-free cleanser
-=======
-    image: '/skin/type-sensitive.jpg',
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
     published: true,
     description: 'Skin that reacts easily with redness or stinging. Choose simple, calming, fragrance-free formulas with centella and soothing botanicals.'
   },
   {
     slug: 'combination',
     name: 'Combination Skin',
-<<<<<<< HEAD
     image: img.toner, // balancing toner
-=======
-    image: '/skin/type-combination.jpg',
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
     published: true,
     description: 'Oilier through the T-zone and normal to dry along cheeks. Dual-action balancing textures work comfortably across all facial zones.'
   }

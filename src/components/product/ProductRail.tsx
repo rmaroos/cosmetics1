@@ -29,11 +29,7 @@ export function ProductRail({ title, description, products, viewAllHref, heading
       <Container>
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-<<<<<<< HEAD
             <h2 id={id} className="type-section text-ink">
-=======
-            <h2 id={id} className="font-display text-3xl leading-tight text-ink md:text-4xl">
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
               {title}
             </h2>
             {description && <p className="mt-1.5 text-ink-2">{description}</p>}
@@ -52,9 +48,9 @@ export function ProductRail({ title, description, products, viewAllHref, heading
             </button>
           </div>
         </div>
-        <ul ref={scroller} className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:gap-6 sm:px-6 lg:mx-0 lg:px-0">
+        <ul ref={scroller} className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:gap-4 sm:px-6 lg:mx-0 lg:px-0">
           {products.map((p) =>
-          <li key={p.id} className="w-[46%] shrink-0 snap-start sm:w-[31%] lg:w-[calc(25%-18px)]">
+          <li key={p.id} className="w-[46%] shrink-0 snap-start sm:w-[31%] md:w-[calc(25%-12px)] lg:w-[calc(16.666%-13.4px)]">
               <ProductCard product={p} />
             </li>
           )}

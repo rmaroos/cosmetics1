@@ -4,11 +4,7 @@ import { AlertTriangleIcon, RefreshCwIcon } from 'lucide-react';
 import { Button } from './Button';
 
 export function Skeleton({ className }: {className?: string;}) {
-<<<<<<< HEAD
   return <div className={twMerge('animate-pulse rounded-md bg-surface', className)} aria-hidden="true" />;
-=======
-  return <div className={twMerge('animate-pulse rounded-md bg-[#F1EDEB]', className)} aria-hidden="true" />;
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
 }
 
 type EmptyStateProps = {
@@ -23,11 +19,7 @@ export function EmptyState({ icon, title, description, action, className }: Empt
   return (
     <div className={twMerge('mx-auto flex max-w-md flex-col items-center px-4 py-16 text-center', className)}>
       {icon && <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-brand-pale text-brand">{icon}</div>}
-<<<<<<< HEAD
       <h2 className="type-category text-ink">{title}</h2>
-=======
-      <h2 className="font-display text-3xl leading-tight text-ink">{title}</h2>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
       {description && <p className="mt-2 text-ink-2">{description}</p>}
       {action && <div className="mt-6 flex flex-wrap justify-center gap-3">{action}</div>}
     </div>);
@@ -40,11 +32,7 @@ export function ErrorState({ message, onRetry, className }: {message?: string;on
       <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-error-soft text-error">
         <AlertTriangleIcon className="h-6 w-6" aria-hidden="true" />
       </div>
-<<<<<<< HEAD
       <h2 className="type-category text-ink">We couldn’t load this</h2>
-=======
-      <h2 className="font-display text-3xl text-ink">We couldn’t load this</h2>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
       <p className="mt-2 text-ink-2">{message ?? 'Something went wrong on our side. Please try again.'}</p>
       {onRetry &&
       <Button variant="secondary" className="mt-6" onClick={onRetry}>

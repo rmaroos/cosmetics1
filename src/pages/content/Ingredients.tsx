@@ -25,11 +25,7 @@ export function Ingredients() {
         aside={
         <div className="w-full md:w-72">
             <label htmlFor="ingredient-search" className="sr-only">Filter ingredients</label>
-<<<<<<< HEAD
             <input id="ingredient-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Filter ingredients" className="h-11 w-full rounded-lg border border-line px-3.5 text-base focus:border-brand md:text-sm focus:outline-none focus:ring-2 focus:ring-brand/25" />
-=======
-            <input id="ingredient-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Filter ingredients" className="h-11 w-full rounded-lg border border-line px-3.5 text-[15px] focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/25" />
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           </div>
         } />
       
@@ -41,11 +37,7 @@ export function Ingredients() {
           const count = searchProducts(ing.name.split(' (')[0]).length;
           return (
             <li key={ing.slug} className="grid gap-4 py-7 md:grid-cols-[240px_1fr_auto] md:gap-10">
-<<<<<<< HEAD
                 <h2 className="type-category text-ink">{ing.name}</h2>
-=======
-                <h2 className="font-display text-2xl text-ink">{ing.name}</h2>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
                 <div className="text-[15px] text-ink-2">
                   <p>{ing.summary}</p>
                   <p className="mt-2 text-sm"><span className="font-medium text-ink">Pairs well with:</span> {ing.pairsWith}</p>
@@ -70,11 +62,7 @@ export function Ingredients() {
       }
       {explainers.length > 0 &&
       <section className="mt-16">
-<<<<<<< HEAD
           <h2 className="type-category text-ink">Ingredient deep dives</h2>
-=======
-          <h2 className="font-display text-3xl text-ink">Ingredient deep dives</h2>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           <ul className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {explainers.map((a) => <li key={a.slug}><ArticleCard article={a} /></li>)}
           </ul>

@@ -42,11 +42,7 @@ export function Brands() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search brands"
-<<<<<<< HEAD
             className="h-11 w-full rounded-lg border border-line pl-10 pr-3 text-base focus:border-brand md:text-sm focus:outline-none focus:ring-2 focus:ring-brand/25" />
-=======
-            className="h-11 w-full rounded-lg border border-line pl-10 pr-3 text-[15px] focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/25" />
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           
           </div>
         } />

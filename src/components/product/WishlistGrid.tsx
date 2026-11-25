@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { HeartIcon, ShoppingBagIcon, XIcon } from 'lucide-react';
 import { toast } from 'sonner';
@@ -24,7 +24,7 @@ export function WishlistGrid() {
       return;
     }
     remove(p.id);
-    toast.success('Moved to your bag', { description: `${p.name} · ${variant.label}` });
+    toast.success('Moved to your bag', { description: `${p.name} Â· ${variant.label}` });
     openDrawer();
   };
 
@@ -44,10 +44,10 @@ export function WishlistGrid() {
       {isGuestList &&
       <Alert tone="info" className="mb-8">
           Your wishlist is saved on this device. <Link to="/login?redirect=/wishlist" className="font-medium text-ink underline underline-offset-2">Sign in</Link> or{' '}
-          <Link to="/register" className="font-medium text-ink underline underline-offset-2">create an account</Link> to keep it across devices — we’ll merge these items in.
+          <Link to="/register" className="font-medium text-ink underline underline-offset-2">create an account</Link> to keep it across devices â€” weâ€™ll merge these items in.
         </Alert>
       }
-      <ul className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-3 xl:grid-cols-4">
+      <ul className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {items.map((p) => {
           const { price, compareAt, hasRange } = getDisplayPrice(p);
           const inStock = isInStock(p);
@@ -70,11 +70,7 @@ export function WishlistGrid() {
                   <XIcon className="h-4 w-4" />
                 </button>
               </div>
-<<<<<<< HEAD
               <p className="mt-3 type-label text-ink-2">{getBrandById(p.brandId)?.name}</p>
-=======
-              <p className="mt-3 text-xs uppercase tracking-wide text-ink-2">{getBrandById(p.brandId)?.name}</p>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
               <Link to={`/product/${p.slug}`} className="mt-1 line-clamp-2 text-[15px] leading-snug text-ink hover:underline underline-offset-2">
                 {p.name}
               </Link>

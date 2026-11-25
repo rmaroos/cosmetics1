@@ -80,11 +80,7 @@ export function ProductListing({ listingKey, resolveProducts, hiddenFilters = []
           {state.status === 'loading' ?
           <div className="space-y-3 py-4" aria-hidden="true">
               {Array.from({ length: 5 }).map((_, i) =>
-<<<<<<< HEAD
             <div key={i} className="h-4 animate-pulse rounded bg-surface" />
-=======
-            <div key={i} className="h-4 animate-pulse rounded bg-[#F1EDEB]" />
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
             )}
             </div> :
 
@@ -110,11 +106,7 @@ export function ProductListing({ listingKey, resolveProducts, hiddenFilters = []
               id={`sort-${listingKey}`}
               value={sort}
               onChange={(e) => setSort(e.target.value as SortKey)}
-<<<<<<< HEAD
               className="h-9 rounded-lg border border-line bg-white pl-3 pr-8 text-base text-ink md:text-sm focus:border-brand focus:outline-none">
-=======
-              className="h-9 rounded-lg border border-line bg-white pl-3 pr-8 text-sm text-ink focus:border-brand focus:outline-none">
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
               
               {sortOptions.map((o) =>
               <option key={o.value} value={o.value}>
@@ -223,11 +215,7 @@ export function SubcategoryChips({ items }: {items: {label: string;to: string;ac
             <Link
             to={i.to}
             aria-current={i.active ? 'page' : undefined}
-<<<<<<< HEAD
             className={`inline-flex h-10 items-center rounded-full border px-4 text-sm font-medium ${i.active ? 'border-brand bg-brand text-white' : 'border-line text-ink hover:border-ink'}`}>
-=======
-            className={`inline-flex h-10 items-center rounded-full border px-4 text-sm font-medium ${i.active ? 'border-ink bg-ink text-white' : 'border-line text-ink hover:border-ink'}`}>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
             
               {i.label}
             </Link>

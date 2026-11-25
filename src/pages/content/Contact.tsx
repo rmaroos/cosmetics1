@@ -53,11 +53,7 @@ export function Contact() {
       <Breadcrumbs items={[{ label: 'Contact us' }]} />
       <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
         <div>
-<<<<<<< HEAD
           <h1 className="type-page text-ink">How can we help?</h1>
-=======
-          <h1 className="font-display text-4xl text-ink md:text-5xl">How can we help?</h1>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
           <p className="mt-3 text-ink-2">Our customer care team usually replies within one working day.</p>
           <ul className="mt-8 divide-y divide-line border-y border-line">
             {channels.map((c) =>
@@ -80,11 +76,7 @@ export function Contact() {
           {status === 'sent' ?
           <div className="py-8 text-center" role="status">
               <CheckCircle2Icon className="mx-auto h-10 w-10 text-success" aria-hidden="true" />
-<<<<<<< HEAD
               <h2 className="mt-4 type-category text-ink">Message sent</h2>
-=======
-              <h2 className="mt-4 font-display text-3xl text-ink">Message sent</h2>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
               <p className="mt-2 text-ink-2">Thanks, {form.name.split(' ')[0]}. We’ll reply to {form.email}. Your reference is <span className="font-medium text-ink">{ticket}</span>.</p>
               <Button variant="secondary" className="mt-6" onClick={() => {setForm({ name: '', email: '', phone: '', topic: '', orderRef: '', message: '' });setStatus('idle');}}>Send another message</Button>
             </div> :

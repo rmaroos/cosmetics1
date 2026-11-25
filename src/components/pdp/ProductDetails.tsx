@@ -14,11 +14,7 @@ export function ProductDetails({ product }: {product: Product;}) {
   return (
     <section aria-labelledby="details-heading" className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
       <div>
-<<<<<<< HEAD
         <h2 id="details-heading" className="type-section text-ink">About this product</h2>
-=======
-        <h2 id="details-heading" className="font-display text-3xl text-ink md:text-4xl">About this product</h2>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
         <p className="mt-4 text-[15px] leading-relaxed text-ink-2 md:text-base">{product.description}</p>
         {product.benefits && product.benefits.length > 0 &&
         <ul className="mt-6 space-y-2">

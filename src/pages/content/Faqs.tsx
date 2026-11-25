@@ -12,11 +12,7 @@ export function Faqs() {
   return (
     <Container className="max-w-4xl pb-20">
       <Breadcrumbs items={[{ label: 'FAQs' }]} />
-<<<<<<< HEAD
       <h1 className="type-page text-ink">Frequently asked questions</h1>
-=======
-      <h1 className="font-display text-4xl text-ink md:text-5xl">Frequently asked questions</h1>
->>>>>>> 7d0afddf08a196a4c824dcd8483680f37936dcd9
       <nav aria-label="FAQ topics" className="mt-6 flex flex-wrap gap-2">
         {topics.map((t) =>
         <a key={t} href={`#faq-${t.toLowerCase()}`} className="rounded-full border border-line px-4 py-2 text-sm font-medium text-ink hover:border-ink">{t}</a>
